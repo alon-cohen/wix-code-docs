@@ -1,7 +1,8 @@
 { "name": "WixDataQuery",
   "memberOf": "wix-data",
   "mixes": [],
-  "labels": [],
+  "labels":
+    [ "changed" ],
   "location":
     { "lineno": 12,
       "filename": "query.es6" },
@@ -38,7 +39,8 @@
   "properties": [],
   "operations":
     [ { "name": "and",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "query",
@@ -274,7 +276,8 @@
         "extra":
           {  } },
       { "name": "between",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -396,7 +399,8 @@
         "extra":
           {  } },
       { "name": "contains",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -865,7 +869,8 @@
         "extra":
           {  } },
       { "name": "endsWith",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -967,7 +972,8 @@
         "extra":
           {  } },
       { "name": "eq",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -1234,7 +1240,8 @@
         "extra":
           {  } },
       { "name": "ge",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -1351,7 +1358,8 @@
         "extra":
           {  } },
       { "name": "gt",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -1465,7 +1473,8 @@
         "extra":
           {  } },
       { "name": "hasAll",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -1584,7 +1593,8 @@
         "extra":
           {  } },
       { "name": "hasSome",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -1924,7 +1934,8 @@
         "extra":
           {  } },
       { "name": "isEmpty",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -2022,7 +2033,8 @@
         "extra":
           {  } },
       { "name": "isNotEmpty",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -2119,7 +2131,8 @@
         "extra":
           {  } },
       { "name": "le",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -2359,7 +2372,8 @@
         "extra":
           {  } },
       { "name": "lt",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -2473,7 +2487,8 @@
         "extra":
           {  } },
       { "name": "ne",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",
@@ -2578,7 +2593,8 @@
         "extra":
           {  } },
       { "name": "not",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "query",
@@ -2649,7 +2665,8 @@
         "extra":
           {  } },
       { "name": "or",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "query",
@@ -2835,7 +2852,8 @@
         "extra":
           {  } },
       { "name": "startsWith",
-        "labels": [],
+        "labels":
+          [ "removed" ],
         "nameParams": [],
         "params":
           [ { "name": "propertyName",

@@ -1,23 +1,26 @@
-{ "name": "WixDataFilter",
+{ "name": "WixDataFilterBuilder",
   "memberOf": "wix-data",
   "mixes": [],
   "labels":
-    [ "changed",
-      "removed" ],
+    [ "new" ],
   "location":
     { "lineno": 6,
       "filename": "filterMixin.es6" },
   "docs":
     { "summary": "Provides functionality for refining a filter.",
       "description":
-        [ "The `WixDataFilter` functions enable you to filter and control which results are returned by a dataset when the",
+        [ "The `WixDataFilterBuilder` functions enable you to filter and control which results are returned by a dataset when the",
           "[`setFilter()`](wix-dataset.Dataset.html#setFilter)  function is applied. ",
           "",
           "A filter is used to control which data is contained in a dataset on your page.",
           "",
-          "Typically, you  build a filter using the [`filter()`](wix-data.html#filter) function, refine the filter with `WixDataFilter` functions, and then apply the filter to the dataset using the [`setFilter()`](wix-dataset.Dataset.html#setFilter) function.",
+          "Typically, you  build a filter using the [`filter()`](wix-data.html#filter) function, refine the filter with `WixDataFilterBuilder` functions, ",
+          "and then apply the filter to the dataset using the [`setFilter()`](wix-dataset.Dataset.html#setFilter) function.",
+          "",
+          "",
           "",
           "For example, the following code shows a filter on a dataset that is connected to a collection containing customer data. The filter includes only customers over the age of 20:",
+          "  ",
           "",
           "```javascript",
           " import wixData from 'wix-data';",
@@ -46,17 +49,17 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 518,
+          [ { "lineno": 522,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Adds an `and` condition to the query or filter.",
             "description":
-              [ "The `and()` function adds an `and` condition to a `WixDataQuery` or `WixDataFilter`.",
+              [ "The `and()` function adds an `and` condition to a `WixDataQuery` or `WixDataFilterBuilder`.",
                 " A query or filter with an `and` returns all the items that match the query",
                 " or filter as defined up to the `and` function and also match the query or",
                 " filter passed to the `and` function.",
                 "",
-                " Note that when chaining multiple `WixDataFilter` functions to a query an `add` condition is assumed.",
+                " Note that when chaining multiple `WixDataFilterBuilder` functions to a query an `add` condition is assumed.",
                 " In such cases, you do not need to add a call to the `and()` function.",
                 " For example, this query returns results where status is active **and** age is",
                 " greater than 25.",
@@ -186,12 +189,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 631,
+          [ { "lineno": 635,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value is within a specified range.",
             "description":
-              [ "The `between()` function refines a `WixDataQuery` or `WixDataFilter` to only",
+              [ "The `between()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only",
                 " match items where the value of the specified property is greater than or equal",
                 " to `rangeStart` and less than `rangeEnd`.",
                 "",
@@ -299,12 +302,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 375,
+          [ { "lineno": 379,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value contains a specified string.",
             "description":
-              [ "The `contains()` function refines a `WixDataQuery` or `WixDataFilter` to",
+              [ "The `contains()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to",
                 " only match items where the value of the specified property contains the",
                 " specified `string`. Matching with `contains()` is not case sensitive, so",
                 " `\"text\"` does contain `\"Tex\"`.",
@@ -403,12 +406,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 348,
+          [ { "lineno": 352,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value ends with a specified string.",
             "description":
-              [ "The `endsWith()` function refines a `WixDataQuery` or `WixDataFilter` to only",
+              [ "The `endsWith()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only",
                 " match items where the value of the specified property ends with the specified",
                 "`string`. Matching with `endsWith()` is not case sensitive, so `\"TEXT\"` ends",
                 " with `\"ext\"`.",
@@ -505,12 +508,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 44,
+          [ { "lineno": 48,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value equals the specified value.",
             "description":
-              [ "The `eq()` function refines a `WixDataQuery` or `WixDataFilter` to only",
+              [ "The `eq()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only",
                 " match items where the value of the specified property equals the specified `value`.",
                 "",
                 " It only matches values of the same type. For example, a number value stored",
@@ -613,12 +616,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 102,
+          [ { "lineno": 106,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value is greater than or equal to the specified value.",
             "description":
-              [ "The `ge()` function refines a `WixDataQuery` or `WixDataFilter` to only",
+              [ "The `ge()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only",
                 " match items where the value of the specified property is greater than or",
                 " equal to the specified `value`.",
                 "",
@@ -730,12 +733,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object with the query definition, based on the supplied parameters." },
         "locations":
-          [ { "lineno": 142,
+          [ { "lineno": 146,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value is greater than the specified value.",
             "description":
-              [ "The `gt()` function refines a `WixDataQuery` or `WixDataFilter` to only match",
+              [ "The `gt()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only match",
                 " items where the value of the specified property is greater than the specified `value`.",
                 "",
                 " It only matches values of the same type. For example, a number value stored",
@@ -847,12 +850,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 445,
+          [ { "lineno": 449,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property values equals all of the specified `value` parameters.",
             "description":
-              [ "The `hasAll()` function refines a `WixDataQuery` or `WixDataFilter` to",
+              [ "The `hasAll()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to",
                 " only match items where the value of the specified property equals all of",
                 " the specified values.",
                 "",
@@ -966,12 +969,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 404,
+          [ { "lineno": 408,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value equals any of the specified `value` parameters.",
             "description":
-              [ "The `hasSome()` function refines a `WixDataQuery` or `WixDataFilter` to",
+              [ "The `hasSome()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to",
                 " only match items where the value of the specified property equals any of",
                 " the specified values.",
                 "",
@@ -1111,12 +1114,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 288,
+          [ { "lineno": 292,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property does not exist or does not have any value.",
             "description":
-              [ "The `isEmpty()` function refines a `WixDataQuery` or `WixDataFilter` to only match items where the",
+              [ "The `isEmpty()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only match items where the",
                 " value of the specified property is `null` or `undefined` or the property does",
                 " not exist.",
                 "",
@@ -1209,12 +1212,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 256,
+          [ { "lineno": 260,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property has any value.",
             "description":
-              [ "The `isNotEmpty()` function refines a `WixDataQuery` or `WixDataFilter` to only match items where the",
+              [ "The `isNotEmpty()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only match items where the",
                 " value of the specified property is not `null` or `undefined`.",
                 "",
                 " If the property contains any value at all for a given item, including the",
@@ -1312,12 +1315,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 179,
+          [ { "lineno": 183,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value is less than or equal to the specified value.",
             "description":
-              [ "The `le()` function refines a `WixDataQuery` or `WixDataFilter` to only match",
+              [ "The `le()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only match",
                 " items where the value of the specified property is less than or equal to the",
                 " specified `value`.",
                 "",
@@ -1429,12 +1432,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object with the query definition, based on the supplied parameters." },
         "locations":
-          [ { "lineno": 219,
+          [ { "lineno": 223,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value is less than the specified value.",
             "description":
-              [ "The `lt()` function refines a `WixDataQuery` or `WixDataFilter` to only match",
+              [ "The `lt()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only match",
                 " items where the value of the specified property is less than the specified `value`.",
                 "",
                 " It only matches values of the same type. For example, a number value stored",
@@ -1540,12 +1543,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 73,
+          [ { "lineno": 77,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value does not equal the specified value.",
             "description":
-              [ "The `ne()` function refines a `WixDataQuery` or `WixDataFilter` to only",
+              [ "The `ne()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to only",
                 " match items where the value of the specified property does not equal the specified `value`.",
                 "",
                 " It only matches values of the same type. For example, a number value stored",
@@ -1642,12 +1645,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 589,
+          [ { "lineno": 593,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Adds a `not` condition to the query or filter.",
             "description":
-              [ "The `not()` function adds a `not` condition to a `WixDataQuery` or `WixDataFilter`. A query or filter with a `not`",
+              [ "The `not()` function adds a `not` condition to a `WixDataQuery` or `WixDataFilterBuilder`. A query or filter with a `not`",
                 " returns all the items that match the query or filter as defined up to the `not`",
                 " function, but don't match the query or filter passed to the `not` function.",
                 "",
@@ -1713,12 +1716,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 480,
+          [ { "lineno": 484,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Adds an `or` condition to the query or filter.",
             "description":
-              [ "The `or()` function adds an inclusive `or` condition to a `WixDataQuery` or `WixDataFilter`. A query or filter",
+              [ "The `or()` function adds an inclusive `or` condition to a `WixDataQuery` or `WixDataFilterBuilder`. A query or filter",
                 " with an `or` returns all the items that match the query or filter as defined up to",
                 " the `or` function, the items that match the query or filter passed to the `or`",
                 " function, and the items that match both.",
@@ -1802,12 +1805,12 @@
           { "type": "wix-data.WixDataQuery",
             "doc": "A `WixDataQuery` object representing the refined query." },
         "locations":
-          [ { "lineno": 321,
+          [ { "lineno": 325,
               "filename": "filterMixin.es6" } ],
         "docs":
           { "summary": "Refines a query or filter to match items whose specified property value starts with a specified string.",
             "description":
-              [ "The `startsWith()` function refines a `WixDataQuery` or `WixDataFilter` to",
+              [ "The `startsWith()` function refines a `WixDataQuery` or `WixDataFilterBuilder` to",
                 " only match items where the value of the specified property starts with the",
                 " defined `string`. Matching with `startsWith()` is not case sensitive, so `\"TEXT\"` starts",
                 " with `\"tex\"`.",
