@@ -1,8 +1,7 @@
 { "name": "WixDataQueryBuilder",
   "memberOf": "wix-data",
   "mixes": [],
-  "labels":
-    [ "new" ],
+  "labels": [],
   "location":
     { "lineno": 12,
       "filename": "query.es6" },
