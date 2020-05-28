@@ -376,7 +376,7 @@
               "doc": "List of contact's email addresses." },
             { "name": "loginEmail",
               "type": "string",
-              "doc": "Email address the contact who is also\n a member uses to log into the system." },
+              "doc": "Email address the contact, who is also\n a member, uses to log into the system." },
             { "name": "phones",
               "type":
                 { "name": "Array",
@@ -400,7 +400,8 @@
               "doc": "Any\n number of custom fields. [Customs fields](https://support.wix.com/en/article/adding-custom-fields-to-contacts)\n are used to store additional information about your site's contacts. When\n setting a custom field, use key:value pairs where the key matches the names\n defined in your site's [Contacts List](https://support.wix.com/en/article/accessing-your-contact-list).\n You can only set values for custom fields that already exist in the Contacts\n application." } ],
         "extra":
           {  },
-        "labels": [] },
+        "labels":
+          [ "changed" ] },
       { "name": "DeleteOptions",
         "locations":
           [ { "lineno": 131,
