@@ -1,6 +1,7 @@
 { "name": "wix-stores-backend",
   "mixes": [],
-  "labels": [],
+  "labels":
+    [ "changed" ],
   "location":
     { "lineno": 1,
       "filename": "products.js" },
@@ -2638,7 +2639,7 @@
           [ { "lineno": 19,
               "filename": "carts.js" } ],
         "docs":
-          { "summary": "An object representing an address.",
+          { "summary": "An object representing an address - roi bendet.",
             "links": [],
             "examples":
               [ { "title": "Get the current site visitor's cart",
@@ -2832,7 +2833,8 @@
               "doc": "Address." } ],
         "extra":
           {  },
-        "labels": [] },
+        "labels":
+          [ "changed" ] },
       { "name": "AppliedCoupon",
         "locations":
           [ { "lineno": 32,
