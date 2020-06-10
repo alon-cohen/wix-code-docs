@@ -1,6 +1,7 @@
 { "name": "wix-stores-backend",
   "mixes": [],
-  "labels": [],
+  "labels":
+    [ "changed" ],
   "location":
     { "lineno": 1,
       "filename": "products.js" },
@@ -3320,10 +3321,11 @@
               "doc": "Time activity occurred." },
             { "name": "customData",
               "type": "wix-stores-backend.CustomData",
-              "doc": "Custom activity data." } ],
+              "doc": "Custom activity data - roi." } ],
         "extra":
           {  },
-        "labels": [] },
+        "labels":
+          [ "changed" ] },
       { "name": "Address",
         "locations":
           [ { "lineno": 162,
