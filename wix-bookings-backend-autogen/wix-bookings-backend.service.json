@@ -1,9 +1,9 @@
 { "name": "wix-bookings-backend",
   "mixes": [],
   "labels":
-    [ "new" ],
+    [ "changed" ],
   "location":
-    { "lineno": 5517,
+    { "lineno": 10541,
       "filename": "all.js" },
   "docs":
     { "links": [],
@@ -13,7 +13,8 @@
   "properties": [],
   "operations":
     [ { "name": "addParticipant",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "addParticipantRequest",
@@ -29,7 +30,7 @@
           [ { "lineno": 1353,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Adds a participant to a schedule or to a specific session.  \n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Adds a participant to a schedule or to a specific session.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -106,7 +107,8 @@
         "extra":
           {  } },
       { "name": "batchCancel",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "batchCancelScheduleRequest",
@@ -121,7 +123,7 @@
           [ { "lineno": 1428,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Cancels multiple schedules.  \nBy applying this method, the given schedule move to a CANCELLED status which means that all sessions up until. \nthe cancellation point in time are kept, while removing all following sessions.",
+          { "summary": "Cancels multiple schedules.\nBy applying this method, the given schedule move to a CANCELLED status which means that all sessions up until.\nthe cancellation point in time are kept, while removing all following sessions.",
             "links": [],
             "examples": [],
             "extra":
@@ -208,7 +210,8 @@
         "extra":
           {  } },
       { "name": "book",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "bookRequest",
@@ -223,7 +226,7 @@
           [ { "lineno": 40,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Book a service.  \n This method has 2 modes of operation:  \n 1. Book by a customer.  \n 2. Book by the business (e.g. the business owner) on behalf of a customer.  \n  \n When the booking is done by the customer, the following takes place:  \n - Validation of the booking details according to the bookings policy and the service form mandatory fields.  \n - Payment rules are applied. It can be creating a new order in Wix Payments, or redeeming the given paid plan.  \n   When online payment is required, the response contains the details of which the user of this api can complete the payment using Wix Payment Service.  \n - When booking an approval required service, The booking is not charged until it is confirmed by the business.  \n   - BySessionId: The participant added to session is marked as PENDING until the booking is confirmed by the business.  \n   - Slot: A new session is created with affected availability based on the configuration defined in the service policy.  \n\n > **Permissions**   \n > This endpoint requires the Read Bookings - Public data or the Manage Bookings permission scope.  \n > With the Read Bookings - Public data permission scope, a customer booking flow is applied. \n > With the Manage Bookings permission scope, a business 'book on behalf' flow is applied.",
+          { "summary": "Book a service.\n This method has 2 modes of operation:\n 1. Book by a customer.\n 2. Book by the business (e.g. the business owner) on behalf of a customer.\n\n When the booking is done by the customer, the following takes place:\n - Validation of the booking details according to the bookings policy and the service form mandatory fields.\n - Payment rules are applied. It can be creating a new order in Wix Payments, or redeeming the given paid plan.\n   When online payment is required, the response contains the details of which the user of this api can complete the payment using Wix Payment Service.\n - When booking an approval required service, The booking is not charged until it is confirmed by the business.\n   - BySessionId: The participant added to session is marked as PENDING until the booking is confirmed by the business.\n   - Slot: A new session is created with affected availability based on the configuration defined in the service policy.\n\n > **Permissions**\n > This endpoint requires the Read Bookings - Public data or the Manage Bookings permission scope.\n > With the Read Bookings - Public data permission scope, a customer booking flow is applied.\n > With the Manage Bookings permission scope, a business 'book on behalf' flow is applied.",
             "links": [],
             "examples": [],
             "extra":
@@ -275,7 +278,8 @@
         "extra":
           {  } },
       { "name": "cancel",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "cancelBookingRequest",
@@ -294,7 +298,7 @@
             { "lineno": 1466,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Cancel an existing booking.  \n When invoked by a customer flow, this action is validated against the service's bookings policy.  \n Cancelling a bookings triggers the following:  \n - The corresponding participant is removed from the session.  \n - If the booking was created from a slot (and not session id or schedule id), the corresponding session is deleted from the calendar.  \n - The booking status changes CANCELED.   \n\n > **Permissions**   \n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Cancel an existing booking.\n When invoked by a customer flow, this action is validated against the service's bookings policy.\n Cancelling a bookings triggers the following:\n - The corresponding participant is removed from the session.\n - If the booking was created from a slot (and not session id or schedule id), the corresponding session is deleted from the calendar.\n - The booking status changes CANCELED.\n\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -302,7 +306,8 @@
         "extra":
           {  } },
       { "name": "checkout",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "checkoutBookingRequest",
@@ -319,7 +324,7 @@
             { "lineno": 883,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Checkout a booking.\n When invoking this method the following takes place:  \n - The availability of the requested slot/session/schedule is validated.  \n - The Booking is charged, by creating a new order in Wix Payment Service, or by redeem the given paid plan.  \n - (Can happen asynchronously) On payment complete and according to the request and the current booking's state,  \n   A new session is created in the calendar, Or a participant is added to the selected session/schedule.  \n Note: In case the requested booked session is locked, the session key will be needed in order to Checkout the booking.  \n\n > **Permissions**  \n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Checkout a booking.\n When invoking this method the following takes place:\n - The availability of the requested slot/session/schedule is validated.\n - The Booking is charged, by creating a new order in Wix Payment Service, or by redeem the given paid plan.\n - (Can happen asynchronously) On payment complete and according to the request and the current booking's state,\n   A new session is created in the calendar, Or a participant is added to the selected session/schedule.\n Note: In case the requested booked session is locked, the session key will be needed in order to Checkout the booking.\n\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -350,7 +355,8 @@
         "extra":
           {  } },
       { "name": "confirm",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "confirmBookingRequest",
@@ -365,7 +371,7 @@
           [ { "lineno": 140,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Confirm a booking request.  \n When invoking this API the following takes place:  \n - The participant status on the session changes to APPROVED.  \n - Slot availability is updated.  \n - The Booking status changes to CONFIRMED.  \n - The Booking is charged creating an offline-order in Wix Payment Service.  \n\n > **Permissions**   \n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Confirm a booking request.\n When invoking this API the following takes place:\n - The participant status on the session changes to APPROVED.\n - Slot availability is updated.\n - The Booking status changes to CONFIRMED.\n - The Booking is charged creating an offline-order in Wix Payment Service.\n\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -373,7 +379,8 @@
         "extra":
           {  } },
       { "name": "create",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "createScheduleRequest",
@@ -397,7 +404,7 @@
             { "lineno": 2404,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Creates a schedule.\n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Creates a schedule.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -405,7 +412,8 @@
         "extra":
           {  } },
       { "name": "createBooking",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "createBookingRequest",
@@ -420,7 +428,7 @@
           [ { "lineno": 187,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Create a new PENDING booking.  \n When invoking this API the following flow happens internally:  \n  1. We create a new Booking in PENDING state.\n  2. We asynchronously create a new Contact if needed.\n - We do not charge it.  \n - We do not publish any event.\n In order to complete this booking - create a new session, or add a participant to a session or a schedule on the Calendar\n it has to be successfully checked-out; It is possible by invoking the Checkout API.",
+          { "summary": "Create a new PENDING booking.\n When invoking this API the following flow happens internally:\n  1. We create a new Booking in PENDING state.\n  2. We asynchronously create a new Contact if needed.\n - We do not charge it.\n - We do not publish any event.\n In order to complete this booking - create a new session, or add a participant to a session or a schedule on the Calendar\n it has to be successfully checked-out; It is possible by invoking the Checkout API.",
             "links": [],
             "examples": [],
             "extra":
@@ -451,7 +459,8 @@
         "extra":
           {  } },
       { "name": "createSession",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "createSessionRequest",
@@ -467,7 +476,7 @@
           [ { "lineno": 1517,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Creates a session (adds a session to a schedule).  \n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Creates a session (adds a session to a schedule).\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -475,7 +484,8 @@
         "extra":
           {  } },
       { "name": "decline",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "declineBookingRequest",
@@ -490,7 +500,7 @@
           [ { "lineno": 205,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Decline a booking request.  \n When invoking this API the following takes place:  \n - The participant status on the session changes to DECLINED.  \n - The corresponding session or participant is deleted from the calendar.  \n\n - The Booking status changes to DECLINED.  \n > **Permissions**   \n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Decline a booking request.\n When invoking this API the following takes place:\n - The participant status on the session changes to DECLINED.\n - The corresponding session or participant is deleted from the calendar.\n\n - The Booking status changes to DECLINED.\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -527,7 +537,8 @@
         "extra":
           {  } },
       { "name": "deleteSession",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "deleteSessionRequest",
@@ -542,7 +553,7 @@
           [ { "lineno": 1542,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Deletes a session from a schedule.  \n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Deletes a session from a schedule.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -550,7 +561,8 @@
         "extra":
           {  } },
       { "name": "enroll",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "enrollRequest",
@@ -565,7 +577,7 @@
           [ { "lineno": 503,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Books a site member into the session for which they are waitlisted (waiting resource), and the associated booking is checked out.\n Waitlist registration status is changed to ENROLLED.\n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Books a site member into the session for which they are waitlisted (waiting resource), and the associated booking is checked out.\n Waitlist registration status is changed to ENROLLED.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -573,7 +585,8 @@
         "extra":
           {  } },
       { "name": "get",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "getRequest",
@@ -602,7 +615,7 @@
             { "lineno": 2537,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Returns a Booking.  \n\n> **Permissions**\n> The API requires BOOKINGS.READ_BOOKINGS permissions",
+          { "summary": "Returns a Booking.\n\n> **Permissions**\n> The API requires BOOKINGS.READ_BOOKINGS permissions",
             "links": [],
             "examples": [],
             "extra":
@@ -633,7 +646,8 @@
         "extra":
           {  } },
       { "name": "getSession",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "getSessionRequest",
@@ -648,7 +662,7 @@
           [ { "lineno": 1589,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Returns a session from the calendar.  \n> **Permissions**   \n> This endpoint requires the Read Bookings Calendar or the Manage Bookings permission scope.  \n> With the Read Bookings Calendar permission scope, the session participants are not returned.",
+          { "summary": "Returns a session from the calendar.\n> **Permissions**\n> This endpoint requires the Read Bookings Calendar or the Manage Bookings permission scope.\n> With the Read Bookings Calendar permission scope, the session participants are not returned.",
             "links": [],
             "examples": [],
             "extra":
@@ -656,7 +670,8 @@
         "extra":
           {  } },
       { "name": "isAvailable",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "isAvailableRequest",
@@ -671,7 +686,7 @@
           [ { "lineno": 632,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Returns the current availability of a requested entity.  \n Based on the requested entity, validate there is enough spots left.  \n When invoking on a locked session, availability is False.  \n\n > **Permissions**   \n > This endpoint requires the Read Bookings - Public Data permission scope.",
+          { "summary": "Returns the current availability of a requested entity.\n Based on the requested entity, validate there is enough spots left.\n When invoking on a locked session, availability is False.\n\n > **Permissions**\n > This endpoint requires the Read Bookings - Public Data permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -679,7 +694,8 @@
         "extra":
           {  } },
       { "name": "join",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "joinRequest",
@@ -694,7 +710,7 @@
           [ { "lineno": 530,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Registers a site member to a wait-list.  \n This API is only available for site-members.  \n When invoking this API the following takes place:  \n - Validating that the requested session is defined and has a waitlist option.  \n - Validating the waitlist has enough capacity.  \n - A new Booking is created in PENDING state.  \n - A new registration is added to the waitlist.\n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Registers a site member to a wait-list.\n This API is only available for site-members.\n When invoking this API the following takes place:\n - Validating that the requested session is defined and has a waitlist option.\n - Validating the waitlist has enough capacity.\n - A new Booking is created in PENDING state.\n - A new registration is added to the waitlist.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -702,7 +718,8 @@
         "extra":
           {  } },
       { "name": "leave",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "leaveRequest",
@@ -717,7 +734,7 @@
           [ { "lineno": 561,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Removes a site member's registration to a waitlist (and cancels the associated pending-state booking).  \n If a spot has become available for booking and the server is SUGGESTING registration to waitlist registrants, the next member registered to the waitlist will receive an invitation to the opened spot.  \n> **Permissions**   \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Removes a site member's registration to a waitlist (and cancels the associated pending-state booking).\n If a spot has become available for booking and the server is SUGGESTING registration to waitlist registrants, the next member registered to the waitlist will receive an invitation to the opened spot.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -808,7 +825,8 @@
         "extra":
           {  } },
       { "name": "listEvents",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "listEventsRequest",
@@ -823,7 +841,7 @@
           [ { "lineno": 1207,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Lists the events pulled from the external calendar given the provided paging and filtering.  \nQuery object support:\n- **filter**: supports\n  - `start`: query range end time. Required.\n  - `end`: query range end time. Required.\n  - `resourceId`: The external resource Id to which the external calendar is synced.\n- **fields**: not supported.\n- **paging**: not supported.\n- **fieldsets**: not supported.\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Lists the events pulled from the external calendar given the provided paging and filtering.\nQuery object support:\n- **filter**: supports\n  - `start`: query range end time. Required.\n  - `end`: query range end time. Required.\n  - `resourceId`: The external resource Id to which the external calendar is synced.\n- **fields**: not supported.\n- **paging**: not supported.\n- **fieldsets**: not supported.\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -831,7 +849,8 @@
         "extra":
           {  } },
       { "name": "listSessions",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "listSessionsRequest",
@@ -848,7 +867,7 @@
             { "lineno": 1640,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Returns sessions from the business calendar.  \nQuery object support:  \n- **filter**: supports\n  - `scheduleId`: Optional.\n  - `from`: query range start time. Required.\n  - `to`: query range end time. Required.\n  - `tags`: filter by list of tags\n  - `scheduleOwnerIds`: the response will contain sessions with the given scheduleOwnerIds and sessions with affectedSchedules with the given scheduleOwnerIds.\n  - `transparency`: when applied, the `scheduleOwnerIds` filter is required. In case the transparency = BUSY, the response will contain sessions with the given scheduleOwnerIds and sessions with affectedSchedules with the given scheduleOwnerIds where the owner's transparency is BUSY.\n    When transparency = FREE, the response will contain only sessions and affectedSchedules with the given scheduleOwnerIds when the owner's transparency is FREE.\n- **fields**: supported.\n- **paging**: Paging is supported using the page token. For paging the results, i.e. with a page size of 10, set the `query.paging.limit` to a value of `10`.\n    The response will contain a value in the `nextPageToken` field. Pass this value in the `pageToken` field in the following calls and leave the `query` field empty.\n- **fieldsets**: not supported.\n*Query filter example:**\n```\n{\n  \"$and\": [{ \n      \"scheduleId\": \"66a2674c-9267-4600-826e-f463957b9446\" }, \n      { \"from\": \"2019-02-17T13:08:43.000Z\" }, \n      { \"to\": \"2019-02-17T14:08:43.000Z\" }, \n      { \"tags\": [\"GROUP\"]}, \n      { \"scheduleOwnerIds: [\"66a2674c-9267-4600-826e-f463957b9446\", \"66a2674c-9267-4600-826e-f463957b9447\"]}\n]}\n```\n\n> **Permissions**\n> The API requires CALENDAR.READ_SCHEDULES_SESSIONS",
+          { "summary": "Returns sessions from the business calendar.\nQuery object support:\n- **filter**: supports\n  - `scheduleId`: Optional.\n  - `from`: query range start time. Required.\n  - `to`: query range end time. Required.\n  - `tags`: filter by list of tags\n  - `scheduleOwnerIds`: the response will contain sessions with the given scheduleOwnerIds and sessions with affectedSchedules with the given scheduleOwnerIds.\n  - `transparency`: when applied, the `scheduleOwnerIds` filter is required. In case the transparency = BUSY, the response will contain sessions with the given scheduleOwnerIds and sessions with affectedSchedules with the given scheduleOwnerIds where the owner's transparency is BUSY.\n    When transparency = FREE, the response will contain only sessions and affectedSchedules with the given scheduleOwnerIds when the owner's transparency is FREE.\n- **fields**: supported.\n- **paging**: Paging is supported using the page token. For paging the results, i.e. with a page size of 10, set the `query.paging.limit` to a value of `10`.\n    The response will contain a value in the `nextPageToken` field. Pass this value in the `pageToken` field in the following calls and leave the `query` field empty.\n- **fieldsets**: not supported.\n*Query filter example:**\n```\n{\n  \"$and\": [{\n      \"scheduleId\": \"66a2674c-9267-4600-826e-f463957b9446\" },\n      { \"from\": \"2019-02-17T13:08:43.000Z\" },\n      { \"to\": \"2019-02-17T14:08:43.000Z\" },\n      { \"tags\": [\"GROUP\"]},\n      { \"scheduleOwnerIds: [\"66a2674c-9267-4600-826e-f463957b9446\", \"66a2674c-9267-4600-826e-f463957b9447\"]}\n]}\n```\n\n> **Permissions**\n> The API requires CALENDAR.READ_SCHEDULES_SESSIONS",
             "links": [],
             "examples": [],
             "extra":
@@ -856,7 +875,8 @@
         "extra":
           {  } },
       { "name": "listSlots",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "listSlotsRequest",
@@ -871,7 +891,7 @@
           [ { "lineno": 790,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Returns the schedule slots, calculated by the schedule's availability specification.  \nQuery object support:  \n- **filter**: supports\n  - `scheduleIds`: scheduleIds represent the schedule of the sessions. Required.\n    The Min list size is 1. all other filters are optional.\n  - `from`: query range start time\n  - `to`: query range end time\n  - `isAvailable`: By default returned slots will include full capacity sessions. Filter.isAvailable = false is not supported.\n- **fields**: supported.\n- **paging**: Paging is supported using the page token. For paging the results, i.e. with a page size of 10, set the `query.paging.limit` to a value of `10`.\n  The response will contain a value in the `nextPageToken` field. Pass this value in the `pageToken` field in the following calls and leave the `query` field empty.\n- **fieldsets**: not supported.\n*Query filter example:**\n```\n{\"scheduleIds\": [\"66a2674c-9267-4600-826e-f463957b9446\", \"66a2674c-9267-4600-826e-f463957b9447\"] , \"from\": \"2019-02-17T13:08:43.000Z\" , \"to\": \"2019-02-17T14:08:43.000Z\",\"isAvailable\": true}).\n```\n\n> **Permissions**\n> This endpoint requires the Read Bookings Calendar Availability, Read Bookings Calendar, Read Bookings - Public Data, Read Bookings - Including Participants or Manage Bookings permission scope.",
+          { "summary": "Returns the schedule slots, calculated by the schedule's availability specification.\nQuery object support:\n- **filter**: supports\n  - `scheduleIds`: scheduleIds represent the schedule of the sessions. Required.\n    The Min list size is 1. all other filters are optional.\n  - `from`: query range start time\n  - `to`: query range end time\n  - `isAvailable`: By default returned slots will include full capacity sessions. Filter.isAvailable = false is not supported.\n- **fields**: supported.\n- **paging**: Paging is supported using the page token. For paging the results, i.e. with a page size of 10, set the `query.paging.limit` to a value of `10`.\n  The response will contain a value in the `nextPageToken` field. Pass this value in the `pageToken` field in the following calls and leave the `query` field empty.\n- **fieldsets**: not supported.\n*Query filter example:**\n```\n{\"scheduleIds\": [\"66a2674c-9267-4600-826e-f463957b9446\", \"66a2674c-9267-4600-826e-f463957b9447\"] , \"from\": \"2019-02-17T13:08:43.000Z\" , \"to\": \"2019-02-17T14:08:43.000Z\",\"isAvailable\": true}).\n```\n\n> **Permissions**\n> This endpoint requires the Read Bookings Calendar Availability, Read Bookings Calendar, Read Bookings - Public Data, Read Bookings - Including Participants or Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -948,7 +968,8 @@
         "extra":
           {  } },
       { "name": "register",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "registerRequest",
@@ -963,7 +984,7 @@
           [ { "lineno": 589,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Registers a site member to a waitlist. \n If the requested session does not have a waitlist, or if the waitlist is already full, an error is received.\n> **Permissions**   \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Registers a site member to a waitlist.\n If the requested session does not have a waitlist, or if the waitlist is already full, an error is received.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -971,7 +992,8 @@
         "extra":
           {  } },
       { "name": "removeParticipant",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "removeParticipantRequest",
@@ -986,7 +1008,7 @@
           [ { "lineno": 1690,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Removes a participant from a schedule or from a specific session.  \n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Removes a participant from a schedule or from a specific session.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -994,7 +1016,8 @@
         "extra":
           {  } },
       { "name": "reschedule",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "rescheduleRequest",
@@ -1009,7 +1032,7 @@
           [ { "lineno": 382,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Reschedule a Booking.  \n When rescheduling a booking of a slot, the session on the calendar is updated as well.  \n Note: Rescheduling a booking to a schedule is not supported.  \n\n > **Permissions**   \n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Reschedule a Booking.\n When rescheduling a booking of a slot, the session on the calendar is updated as well.\n Note: Rescheduling a booking to a schedule is not supported.\n\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -1063,7 +1086,8 @@
         "extra":
           {  } },
       { "name": "splitInterval",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "splitIntervalRequest",
@@ -1078,7 +1102,7 @@
           [ { "lineno": 1715,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Splits an existing interval into two or more parts.\n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Splits an existing interval into two or more parts.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -1179,7 +1203,8 @@
         "extra":
           {  } },
       { "name": "unlock",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "unlockRequest",
@@ -1194,7 +1219,7 @@
           [ { "lineno": 687,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Unlock a locked session for bookings.  \n When invoking this API with a sessionId and its key, the session will be available for bookings.  \n\n > **Permissions**   \n > This endpoint requires the Manage Bookings permission scope.",
+          { "summary": "Unlock a locked session for bookings.\n When invoking this API with a sessionId and its key, the session will be available for bookings.\n\n > **Permissions**\n > This endpoint requires the Manage Bookings permission scope.",
             "links": [],
             "examples": [],
             "extra":
@@ -1202,7 +1227,8 @@
         "extra":
           {  } },
       { "name": "update",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "updateBookingRequest",
@@ -1231,7 +1257,7 @@
             { "lineno": 2485,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Updates an existing booking details, for the given bookingId.  \n When invoking this API the following flow happens internally:  \n - On Rescheduling a booking.   \n   - Based on invoker permission We validate the action against the service's booking policy.  \n   - When rescheduling a booking to a slot, We also update the created session time on the calendar.  \n   - When rescheduling a booking to a given session, We remove the participant from the previous session, and add him as a new one to the new requested session.  \n   - Rescheduling a booking to a schedule is not supported.\n   - Finally, We publish OwnerRescheduledBooking or MemberRescheduledBooking based on the invoker permissions.  \n - On updating the booking's paid amount received -  \n   - This action is only allowed to a permitted user.  \n   - We update the payment in Wix Payment Service and the payment details of the booking.  \n - On updating the booking's form info -  \n   - This action is only allowed to a permitted user.  \n   - We update the participant details of the session on the calendar.  \n   - We override the bookings form info with the new given form info.  \n   - Finally, publish ownerUpdatedBookingFormInfo event.  \n - On updating the booking's attendance info -  \n   - This action is only allowed to a permitted user.  \n   - We update the booking attendance details and publish ownerUpdatedBookingAttendanceInfo event.",
+          { "summary": "Updates an existing booking details, for the given bookingId.\n When invoking this API the following flow happens internally:\n - On Rescheduling a booking.\n   - Based on invoker permission We validate the action against the service's booking policy.\n   - When rescheduling a booking to a slot, We also update the created session time on the calendar.\n   - When rescheduling a booking to a given session, We remove the participant from the previous session, and add him as a new one to the new requested session.\n   - Rescheduling a booking to a schedule is not supported.\n   - Finally, We publish OwnerRescheduledBooking or MemberRescheduledBooking based on the invoker permissions.\n - On updating the booking's paid amount received -\n   - This action is only allowed to a permitted user.\n   - We update the payment in Wix Payment Service and the payment details of the booking.\n - On updating the booking's form info -\n   - This action is only allowed to a permitted user.\n   - We update the participant details of the session on the calendar.\n   - We override the bookings form info with the new given form info.\n   - Finally, publish ownerUpdatedBookingFormInfo event.\n - On updating the booking's attendance info -\n   - This action is only allowed to a permitted user.\n   - We update the booking attendance details and publish ownerUpdatedBookingAttendanceInfo event.",
             "links": [],
             "examples": [],
             "extra":
@@ -1262,7 +1288,8 @@
         "extra":
           {  } },
       { "name": "updateInterval",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "updateIntervalRequest",
@@ -1277,7 +1304,7 @@
           [ { "lineno": 1784,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Updates an existing recurring interval.\n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Updates an existing recurring interval.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -1285,7 +1312,8 @@
         "extra":
           {  } },
       { "name": "updateParticipant",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "updateParticipantRequest",
@@ -1300,7 +1328,7 @@
           [ { "lineno": 1808,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Updates participant details.  \n The field values you specify replace the existing values. Fields that you don’t specify in the request remain unchanged.  \nArray fields, if specified, overwrite the existing arrays; this discards any previous array elements.  \n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Updates participant details.\n The field values you specify replace the existing values. Fields that you don’t specify in the request remain unchanged.\nArray fields, if specified, overwrite the existing arrays; this discards any previous array elements.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -1308,7 +1336,8 @@
         "extra":
           {  } },
       { "name": "updateSession",
-        "labels": [],
+        "labels":
+          [ "changed" ],
         "nameParams": [],
         "params":
           [ { "name": "updateSessionRequest",
@@ -1323,7 +1352,7 @@
           [ { "lineno": 1837,
               "filename": "all.js" } ],
         "docs":
-          { "summary": "Updates a session.  \nThe field values you specify replace the existing values. Fields that you don’t specify in the request remain unchanged.  \n Array fields, if specified, overwrite the existing arrays; this discards any previous array elements.  \n> **Permissions**  \n> This endpoint requires the Manage Bookings permissions scope",
+          { "summary": "Updates a session.\nThe field values you specify replace the existing values. Fields that you don’t specify in the request remain unchanged.\n Array fields, if specified, overwrite the existing arrays; this discards any previous array elements.\n> **Permissions**\n> This endpoint requires the Manage Bookings permissions scope",
             "links": [],
             "examples": [],
             "extra":
@@ -1337,6 +1366,10 @@
           [ { "lineno": 4765,
               "filename": "all.js" },
             { "lineno": 4765,
+              "filename": "all.js" },
+            { "lineno": 9506,
+              "filename": "all.js" },
+            { "lineno": 9506,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Available payment actions.",
@@ -1360,6 +1393,8 @@
       { "name": "AddParticipantRequest",
         "locations":
           [ { "lineno": 1345,
+              "filename": "all.js" },
+            { "lineno": 6901,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Participants",
@@ -1383,6 +1418,8 @@
       { "name": "AddParticipantResponse",
         "locations":
           [ { "lineno": 1336,
+              "filename": "all.js" },
+            { "lineno": 6892,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1410,9 +1447,13 @@
         "labels": [] },
       { "name": "AdditionalLabel",
         "locations":
-          [ { "lineno": 4729,
+          [ { "lineno": 9470,
               "filename": "all.js" },
-            { "lineno": 4729,
+            { "lineno": 9470,
+              "filename": "all.js" },
+            { "lineno": 9470,
+              "filename": "all.js" },
+            { "lineno": 9470,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1427,9 +1468,13 @@
         "labels": [] },
       { "name": "AddressFields",
         "locations":
-          [ { "lineno": 4714,
+          [ { "lineno": 9448,
               "filename": "all.js" },
-            { "lineno": 4714,
+            { "lineno": 9448,
+              "filename": "all.js" },
+            { "lineno": 9448,
+              "filename": "all.js" },
+            { "lineno": 9448,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Customer's address (displayed in Wix Bookings UI only when a service’s location is set to \"Customer’s Place\").",
@@ -1452,6 +1497,8 @@
       { "name": "AllowedActions",
         "locations":
           [ { "lineno": 3701,
+              "filename": "all.js" },
+            { "lineno": 8034,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Optional. Will return only when requested.",
@@ -1475,6 +1522,8 @@
       { "name": "AssignWiXUserAsScheduleOwnerRequest",
         "locations":
           [ { "lineno": 1372,
+              "filename": "all.js" },
+            { "lineno": 6928,
               "filename": "all.js" } ],
         "docs":
           { "summary": "schedule owner",
@@ -1498,6 +1547,8 @@
       { "name": "AssignWiXUserAsScheduleOwnerResponse",
         "locations":
           [ { "lineno": 1366,
+              "filename": "all.js" },
+            { "lineno": 6922,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1519,6 +1570,10 @@
           [ { "lineno": 5224,
               "filename": "all.js" },
             { "lineno": 5224,
+              "filename": "all.js" },
+            { "lineno": 10749,
+              "filename": "all.js" },
+            { "lineno": 10749,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Attendance Info. Optional",
@@ -1538,13 +1593,21 @@
         "labels": [] },
       { "name": "Availability",
         "locations":
-          [ { "lineno": 4539,
+          [ { "lineno": 10399,
               "filename": "all.js" },
-            { "lineno": 4539,
+            { "lineno": 10399,
               "filename": "all.js" },
-            { "lineno": 4539,
+            { "lineno": 10399,
               "filename": "all.js" },
-            { "lineno": 4539,
+            { "lineno": 10399,
+              "filename": "all.js" },
+            { "lineno": 10399,
+              "filename": "all.js" },
+            { "lineno": 10399,
+              "filename": "all.js" },
+            { "lineno": 10399,
+              "filename": "all.js" },
+            { "lineno": 10399,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Describes how to calculate the schedule's availability for adding participants. Optional.\nEmpty value indicates that this schedule is not available for adding participants.\nThis definition will be applied to the schedule's available intervals. Schedule's available intervals are the\nrecurring intervals minus sessions that has no more spots, or schedule's sessions with open spots.",
@@ -1580,6 +1643,14 @@
             { "lineno": 4697,
               "filename": "all.js" },
             { "lineno": 4697,
+              "filename": "all.js" },
+            { "lineno": 10421,
+              "filename": "all.js" },
+            { "lineno": 10421,
+              "filename": "all.js" },
+            { "lineno": 10421,
+              "filename": "all.js" },
+            { "lineno": 10421,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Additional constraints for calculating the schedule's availability for booking. Optional.\nDescribes how to calculate the specific slots that are available for booking.",
@@ -1611,6 +1682,10 @@
           [ { "lineno": 266,
               "filename": "all.js" },
             { "lineno": 619,
+              "filename": "all.js" },
+            { "lineno": 5807,
+              "filename": "all.js" },
+            { "lineno": 6183,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1636,6 +1711,8 @@
       { "name": "AvailableActions",
         "locations":
           [ { "lineno": 5190,
+              "filename": "all.js" },
+            { "lineno": 10715,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Currently available actions for this registration.",
@@ -1656,6 +1733,8 @@
       { "name": "BackOfficeListRequest",
         "locations":
           [ { "lineno": 2522,
+              "filename": "all.js" },
+            { "lineno": 7625,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1671,6 +1750,8 @@
       { "name": "BackOfficeListResponse",
         "locations":
           [ { "lineno": 2517,
+              "filename": "all.js" },
+            { "lineno": 7620,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1690,6 +1771,12 @@
             { "lineno": 5502,
               "filename": "all.js" },
             { "lineno": 5502,
+              "filename": "all.js" },
+            { "lineno": 10864,
+              "filename": "all.js" },
+            { "lineno": 10864,
+              "filename": "all.js" },
+            { "lineno": 10864,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The booking Balance.",
@@ -1709,7 +1796,9 @@
         "labels": [] },
       { "name": "BatchCancelScheduleRequest",
         "locations":
-          [ { "lineno": 1423,
+          [ { "lineno": 6979,
+              "filename": "all.js" },
+            { "lineno": 6979,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1727,7 +1816,9 @@
         "labels": [] },
       { "name": "BatchCancelScheduleResponse",
         "locations":
-          [ { "lineno": 1418,
+          [ { "lineno": 6974,
+              "filename": "all.js" },
+            { "lineno": 6974,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1784,7 +1875,9 @@
         "labels": [] },
       { "name": "BatchCreateResourceRequest",
         "locations":
-          [ { "lineno": 1852,
+          [ { "lineno": 7408,
+              "filename": "all.js" },
+            { "lineno": 7408,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1803,7 +1896,9 @@
         "labels": [] },
       { "name": "BatchCreateResourceResponse",
         "locations":
-          [ { "lineno": 1857,
+          [ { "lineno": 7413,
+              "filename": "all.js" },
+            { "lineno": 7413,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1822,7 +1917,9 @@
         "labels": [] },
       { "name": "BatchCreateScheduleRequest",
         "locations":
-          [ { "lineno": 1446,
+          [ { "lineno": 7002,
+              "filename": "all.js" },
+            { "lineno": 7002,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1841,7 +1938,9 @@
         "labels": [] },
       { "name": "BatchCreateScheduleResponse",
         "locations":
-          [ { "lineno": 1441,
+          [ { "lineno": 6997,
+              "filename": "all.js" },
+            { "lineno": 6997,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1930,6 +2029,8 @@
       { "name": "BatchDeleteResourceRequest",
         "locations":
           [ { "lineno": 1873,
+              "filename": "all.js" },
+            { "lineno": 7429,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1948,7 +2049,9 @@
         "labels": [] },
       { "name": "BatchDeleteResourceResponse",
         "locations":
-          [ { "lineno": 1878,
+          [ { "lineno": 7434,
+              "filename": "all.js" },
+            { "lineno": 7434,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -1993,9 +2096,11 @@
         "labels": [] },
       { "name": "BatchRequest",
         "locations":
-          [ { "lineno": 1391,
+          [ { "lineno": 6947,
               "filename": "all.js" },
             { "lineno": 2622,
+              "filename": "all.js" },
+            { "lineno": 6947,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2026,7 +2131,9 @@
         "labels": [] },
       { "name": "BatchResponse",
         "locations":
-          [ { "lineno": 1400,
+          [ { "lineno": 6956,
+              "filename": "all.js" },
+            { "lineno": 6956,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2134,6 +2241,8 @@
       { "name": "BookRequest",
         "locations":
           [ { "lineno": 5,
+              "filename": "all.js" },
+            { "lineno": 5539,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2169,7 +2278,9 @@
         "labels": [] },
       { "name": "BookResponse",
         "locations":
-          [ { "lineno": 25,
+          [ { "lineno": 5559,
+              "filename": "all.js" },
+            { "lineno": 5559,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2189,6 +2300,12 @@
             { "lineno": 5401,
               "filename": "all.js" },
             { "lineno": 5401,
+              "filename": "all.js" },
+            { "lineno": 10636,
+              "filename": "all.js" },
+            { "lineno": 10636,
+              "filename": "all.js" },
+            { "lineno": 10636,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2227,6 +2344,10 @@
           [ { "lineno": 5217,
               "filename": "all.js" },
             { "lineno": 5217,
+              "filename": "all.js" },
+            { "lineno": 10742,
+              "filename": "all.js" },
+            { "lineno": 10742,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2250,6 +2371,10 @@
           [ { "lineno": 3813,
               "filename": "all.js" },
             { "lineno": 5307,
+              "filename": "all.js" },
+            { "lineno": 8144,
+              "filename": "all.js" },
+            { "lineno": 10832,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2294,6 +2419,10 @@
           [ { "lineno": 4670,
               "filename": "all.js" },
             { "lineno": 4670,
+              "filename": "all.js" },
+            { "lineno": 9404,
+              "filename": "all.js" },
+            { "lineno": 9404,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Description of the bookings policy for this service.",
@@ -2337,6 +2466,10 @@
           [ { "lineno": 5231,
               "filename": "all.js" },
             { "lineno": 5231,
+              "filename": "all.js" },
+            { "lineno": 10756,
+              "filename": "all.js" },
+            { "lineno": 10756,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2364,6 +2497,10 @@
           [ { "lineno": 4636,
               "filename": "all.js" },
             { "lineno": 4636,
+              "filename": "all.js" },
+            { "lineno": 9370,
+              "filename": "all.js" },
+            { "lineno": 9370,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Bookings approval policy for this service. Empty by default.",
@@ -2401,7 +2538,11 @@
         "labels": [] },
       { "name": "BulkRequest",
         "locations":
-          [ { "lineno": 4953,
+          [ { "lineno": 9695,
+              "filename": "all.js" },
+            { "lineno": 9695,
+              "filename": "all.js" },
+            { "lineno": 9695,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2424,7 +2565,11 @@
         "labels": [] },
       { "name": "BulkResponse",
         "locations":
-          [ { "lineno": 4806,
+          [ { "lineno": 9547,
+              "filename": "all.js" },
+            { "lineno": 9547,
+              "filename": "all.js" },
+            { "lineno": 9547,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2474,6 +2619,8 @@
       { "name": "BySessionId",
         "locations":
           [ { "lineno": 3836,
+              "filename": "all.js" },
+            { "lineno": 8167,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Session Id to book.",
@@ -2497,6 +2644,8 @@
       { "name": "CalculateRequest",
         "locations":
           [ { "lineno": 821,
+              "filename": "all.js" },
+            { "lineno": 6385,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2524,7 +2673,9 @@
         "labels": [] },
       { "name": "CalculateResponse",
         "locations":
-          [ { "lineno": 831,
+          [ { "lineno": 6395,
+              "filename": "all.js" },
+            { "lineno": 6395,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2552,6 +2703,20 @@
             { "lineno": 4462,
               "filename": "all.js" },
             { "lineno": 4462,
+              "filename": "all.js" },
+            { "lineno": 10127,
+              "filename": "all.js" },
+            { "lineno": 10127,
+              "filename": "all.js" },
+            { "lineno": 10352,
+              "filename": "all.js" },
+            { "lineno": 10352,
+              "filename": "all.js" },
+            { "lineno": 10127,
+              "filename": "all.js" },
+            { "lineno": 10127,
+              "filename": "all.js" },
+            { "lineno": 10352,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Holding the conference meeting created when the session is created, according to the details set in the Schedule's conference provider information.",
@@ -2590,6 +2755,14 @@
             { "lineno": 3916,
               "filename": "all.js" },
             { "lineno": 3916,
+              "filename": "all.js" },
+            { "lineno": 10108,
+              "filename": "all.js" },
+            { "lineno": 10108,
+              "filename": "all.js" },
+            { "lineno": 9836,
+              "filename": "all.js" },
+            { "lineno": 10108,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The start time of the session. Required.",
@@ -2613,6 +2786,8 @@
       { "name": "CancelBookingRequest",
         "locations":
           [ { "lineno": 79,
+              "filename": "all.js" },
+            { "lineno": 5613,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2635,6 +2810,8 @@
       { "name": "CancelBookingResponse",
         "locations":
           [ { "lineno": 67,
+              "filename": "all.js" },
+            { "lineno": 5601,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2656,6 +2833,8 @@
       { "name": "CancelRequest",
         "locations":
           [ { "lineno": 851,
+              "filename": "all.js" },
+            { "lineno": 6415,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2670,7 +2849,9 @@
         "labels": [] },
       { "name": "CancelResponse",
         "locations":
-          [ { "lineno": 846,
+          [ { "lineno": 6410,
+              "filename": "all.js" },
+            { "lineno": 6410,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2688,6 +2869,8 @@
           [ { "lineno": 3323,
               "filename": "all.js" },
             { "lineno": 3323,
+              "filename": "all.js" },
+            { "lineno": 10028,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2715,7 +2898,9 @@
         "labels": [] },
       { "name": "CancelScheduleResponse",
         "locations":
-          [ { "lineno": 1461,
+          [ { "lineno": 7017,
+              "filename": "all.js" },
+            { "lineno": 7017,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2734,6 +2919,10 @@
           [ { "lineno": 3024,
               "filename": "all.js" },
             { "lineno": 4939,
+              "filename": "all.js" },
+            { "lineno": 9681,
+              "filename": "all.js" },
+            { "lineno": 9681,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2762,6 +2951,8 @@
       { "name": "CheckoutBookingRequest",
         "locations":
           [ { "lineno": 111,
+              "filename": "all.js" },
+            { "lineno": 5652,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2789,7 +2980,9 @@
         "labels": [] },
       { "name": "CheckoutBookingResponse",
         "locations":
-          [ { "lineno": 106,
+          [ { "lineno": 5647,
+              "filename": "all.js" },
+            { "lineno": 5647,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2804,7 +2997,9 @@
         "labels": [] },
       { "name": "CheckoutOptions",
         "locations":
-          [ { "lineno": 894,
+          [ { "lineno": 6458,
+              "filename": "all.js" },
+            { "lineno": 6458,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Checkout options.",
@@ -2825,6 +3020,8 @@
       { "name": "CheckoutOptionsRequest",
         "locations":
           [ { "lineno": 1016,
+              "filename": "all.js" },
+            { "lineno": 6580,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2848,7 +3045,9 @@
         "labels": [] },
       { "name": "CheckoutOptionsResponse",
         "locations":
-          [ { "lineno": 901,
+          [ { "lineno": 6465,
+              "filename": "all.js" },
+            { "lineno": 6465,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2865,6 +3064,8 @@
       { "name": "CheckoutRequest",
         "locations":
           [ { "lineno": 872,
+              "filename": "all.js" },
+            { "lineno": 6436,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2895,7 +3096,9 @@
         "labels": [] },
       { "name": "CheckoutResponse",
         "locations":
-          [ { "lineno": 867,
+          [ { "lineno": 6431,
+              "filename": "all.js" },
+            { "lineno": 6431,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2917,6 +3120,14 @@
             { "lineno": 4908,
               "filename": "all.js" },
             { "lineno": 4908,
+              "filename": "all.js" },
+            { "lineno": 10511,
+              "filename": "all.js" },
+            { "lineno": 10511,
+              "filename": "all.js" },
+            { "lineno": 10511,
+              "filename": "all.js" },
+            { "lineno": 10511,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Conferencing Provider. A schedule with a conferencing provider will use to provider information to create a conference meeting on the provider's system when a session is created on the schedule or on one of its linked schedule's.",
@@ -2934,6 +3145,8 @@
       { "name": "ConfirmBookingRequest",
         "locations":
           [ { "lineno": 3750,
+              "filename": "all.js" },
+            { "lineno": 8083,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2953,6 +3166,8 @@
       { "name": "ConfirmBookingResponse",
         "locations":
           [ { "lineno": 3745,
+              "filename": "all.js" },
+            { "lineno": 8078,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -2973,6 +3188,12 @@
             { "lineno": 5031,
               "filename": "all.js" },
             { "lineno": 5364,
+              "filename": "all.js" },
+            { "lineno": 10556,
+              "filename": "all.js" },
+            { "lineno": 8929,
+              "filename": "all.js" },
+            { "lineno": 10556,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The contact details describing the owner of this booking.",
@@ -3015,6 +3236,12 @@
             { "lineno": 5510,
               "filename": "all.js" },
             { "lineno": 5510,
+              "filename": "all.js" },
+            { "lineno": 10872,
+              "filename": "all.js" },
+            { "lineno": 10872,
+              "filename": "all.js" },
+            { "lineno": 10872,
               "filename": "all.js" } ],
         "docs":
           { "summary": "temporarily in-out , when available indicate coupon usage.",
@@ -3036,7 +3263,9 @@
         "labels": [] },
       { "name": "CreateBookingRequest",
         "locations":
-          [ { "lineno": 164,
+          [ { "lineno": 5705,
+              "filename": "all.js" },
+            { "lineno": 5705,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3058,7 +3287,9 @@
         "labels": [] },
       { "name": "CreateBookingResponse",
         "locations":
-          [ { "lineno": 159,
+          [ { "lineno": 5700,
+              "filename": "all.js" },
+            { "lineno": 5700,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3138,6 +3369,8 @@
       { "name": "CreateOfflineOrderRequest",
         "locations":
           [ { "lineno": 1101,
+              "filename": "all.js" },
+            { "lineno": 6665,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3156,7 +3389,9 @@
         "labels": [] },
       { "name": "CreateOfflineOrderResponse",
         "locations":
-          [ { "lineno": 1096,
+          [ { "lineno": 6660,
+              "filename": "all.js" },
+            { "lineno": 6660,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3171,7 +3406,9 @@
         "labels": [] },
       { "name": "CreateResourceRequest",
         "locations":
-          [ { "lineno": 1897,
+          [ { "lineno": 7453,
+              "filename": "all.js" },
+            { "lineno": 7453,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3187,7 +3424,9 @@
         "labels": [] },
       { "name": "CreateResourceResponse",
         "locations":
-          [ { "lineno": 1892,
+          [ { "lineno": 7448,
+              "filename": "all.js" },
+            { "lineno": 7448,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3203,9 +3442,11 @@
         "labels": [] },
       { "name": "CreateScheduleRequest",
         "locations":
-          [ { "lineno": 3271,
+          [ { "lineno": 9975,
               "filename": "all.js" },
-            { "lineno": 3271,
+            { "lineno": 9975,
+              "filename": "all.js" },
+            { "lineno": 9975,
               "filename": "all.js" } ],
         "docs":
           { "summary": "schedule",
@@ -3222,7 +3463,9 @@
         "labels": [] },
       { "name": "CreateScheduleResponse",
         "locations":
-          [ { "lineno": 1480,
+          [ { "lineno": 7036,
+              "filename": "all.js" },
+            { "lineno": 7036,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3281,7 +3524,9 @@
         "labels": [] },
       { "name": "CreateSessionRequest",
         "locations":
-          [ { "lineno": 1505,
+          [ { "lineno": 7061,
+              "filename": "all.js" },
+            { "lineno": 7061,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Schedule's session",
@@ -3301,7 +3546,9 @@
         "labels": [] },
       { "name": "CreateSessionResponse",
         "locations":
-          [ { "lineno": 1512,
+          [ { "lineno": 7068,
+              "filename": "all.js" },
+            { "lineno": 7068,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3320,6 +3567,10 @@
           [ { "lineno": 5099,
               "filename": "all.js" },
             { "lineno": 5099,
+              "filename": "all.js" },
+            { "lineno": 10624,
+              "filename": "all.js" },
+            { "lineno": 10624,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3345,6 +3596,8 @@
       { "name": "DeclineBookingRequest",
         "locations":
           [ { "lineno": 3627,
+              "filename": "all.js" },
+            { "lineno": 7960,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3364,6 +3617,8 @@
       { "name": "DeclineBookingResponse",
         "locations":
           [ { "lineno": 3441,
+              "filename": "all.js" },
+            { "lineno": 7774,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3443,6 +3698,8 @@
       { "name": "DeleteResourceRequest",
         "locations":
           [ { "lineno": 1917,
+              "filename": "all.js" },
+            { "lineno": 7473,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3458,7 +3715,9 @@
         "labels": [] },
       { "name": "DeleteResourceResponse",
         "locations":
-          [ { "lineno": 1913,
+          [ { "lineno": 7469,
+              "filename": "all.js" },
+            { "lineno": 7469,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3511,6 +3770,8 @@
       { "name": "DeleteSessionRequest",
         "locations":
           [ { "lineno": 1535,
+              "filename": "all.js" },
+            { "lineno": 7091,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3533,6 +3794,8 @@
       { "name": "DeleteSessionResponse",
         "locations":
           [ { "lineno": 1530,
+              "filename": "all.js" },
+            { "lineno": 7086,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3549,6 +3812,8 @@
       { "name": "EnrollRequest",
         "locations":
           [ { "lineno": 5123,
+              "filename": "all.js" },
+            { "lineno": 10648,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3573,6 +3838,8 @@
       { "name": "EnrollResponse",
         "locations":
           [ { "lineno": 5074,
+              "filename": "all.js" },
+            { "lineno": 10599,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3595,6 +3862,14 @@
             { "lineno": 4623,
               "filename": "all.js" },
             { "lineno": 4623,
+              "filename": "all.js" },
+            { "lineno": 9357,
+              "filename": "all.js" },
+            { "lineno": 9357,
+              "filename": "all.js" },
+            { "lineno": 9357,
+              "filename": "all.js" },
+            { "lineno": 9357,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3612,6 +3887,8 @@
       { "name": "ExternalCalendarEvent",
         "locations":
           [ { "lineno": 1143,
+              "filename": "all.js" },
+            { "lineno": 6707,
               "filename": "all.js" } ],
         "docs":
           { "summary": "External calendar event.",
@@ -3650,6 +3927,20 @@
             { "lineno": 4773,
               "filename": "all.js" },
             { "lineno": 4773,
+              "filename": "all.js" },
+            { "lineno": 10240,
+              "filename": "all.js" },
+            { "lineno": 10240,
+              "filename": "all.js" },
+            { "lineno": 10462,
+              "filename": "all.js" },
+            { "lineno": 10462,
+              "filename": "all.js" },
+            { "lineno": 10462,
+              "filename": "all.js" },
+            { "lineno": 10240,
+              "filename": "all.js" },
+            { "lineno": 10462,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Optional. When provided, the values will be used to override default fields values which are synced to external calendar.\nRead more in external calendar documentation. The default is the schedule external calendar overrides.",
@@ -3672,6 +3963,10 @@
           [ { "lineno": 4752,
               "filename": "all.js" },
             { "lineno": 4752,
+              "filename": "all.js" },
+            { "lineno": 9493,
+              "filename": "all.js" },
+            { "lineno": 9493,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Constraints applied to this field.",
@@ -3695,6 +3990,12 @@
             { "lineno": 3377,
               "filename": "all.js" },
             { "lineno": 3774,
+              "filename": "all.js" },
+            { "lineno": 7582,
+              "filename": "all.js" },
+            { "lineno": 8105,
+              "filename": "all.js" },
+            { "lineno": 10082,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Field mask of fields to update.",
@@ -3734,6 +4035,10 @@
           [ { "lineno": 2632,
               "filename": "all.js" },
             { "lineno": 4360,
+              "filename": "all.js" },
+            { "lineno": 9094,
+              "filename": "all.js" },
+            { "lineno": 9094,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The requested form",
@@ -3780,6 +4085,10 @@
           [ { "lineno": 3004,
               "filename": "all.js" },
             { "lineno": 4914,
+              "filename": "all.js" },
+            { "lineno": 9655,
+              "filename": "all.js" },
+            { "lineno": 9655,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Customer's phone number.",
@@ -3814,6 +4123,10 @@
           [ { "lineno": 5179,
               "filename": "all.js" },
             { "lineno": 5179,
+              "filename": "all.js" },
+            { "lineno": 10704,
+              "filename": "all.js" },
+            { "lineno": 10704,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Form info submitted when booking. Contains contact details, participants, other form fields specified by the owner for the choosen service.\n Contact information. Mandatory. contains contact details, participants, other form fields specified by the owner for the choosen service.",
@@ -3851,6 +4164,14 @@
             { "lineno": 4723,
               "filename": "all.js" },
             { "lineno": 4723,
+              "filename": "all.js" },
+            { "lineno": 10438,
+              "filename": "all.js" },
+            { "lineno": 10438,
+              "filename": "all.js" },
+            { "lineno": 10438,
+              "filename": "all.js" },
+            { "lineno": 10438,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The frequency of the interval. Optional. The default is frequency with the default repetition.",
@@ -3870,6 +4191,10 @@
           [ { "lineno": 4607,
               "filename": "all.js" },
             { "lineno": 4607,
+              "filename": "all.js" },
+            { "lineno": 9341,
+              "filename": "all.js" },
+            { "lineno": 9341,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Advance booking policy - how far in advance a participant can book sessions, calculated from the current time.",
@@ -3890,6 +4215,10 @@
       { "name": "GetActiveFeaturesResponse",
         "locations":
           [ { "lineno": 4553,
+              "filename": "all.js" },
+            { "lineno": 9287,
+              "filename": "all.js" },
+            { "lineno": 9287,
               "filename": "all.js" } ],
         "docs":
           { "summary": "active booking features for site",
@@ -3920,6 +4249,8 @@
       { "name": "GetAvailabilityRequest",
         "locations":
           [ { "lineno": 277,
+              "filename": "all.js" },
+            { "lineno": 5818,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3938,6 +4269,8 @@
       { "name": "GetAvailabilityResponse",
         "locations":
           [ { "lineno": 259,
+              "filename": "all.js" },
+            { "lineno": 5800,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3960,6 +4293,10 @@
       { "name": "GetBusinessRequest",
         "locations":
           [ { "lineno": 4927,
+              "filename": "all.js" },
+            { "lineno": 9669,
+              "filename": "all.js" },
+            { "lineno": 9669,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -3975,6 +4312,10 @@
       { "name": "GetBusinessResponse",
         "locations":
           [ { "lineno": 4840,
+              "filename": "all.js" },
+            { "lineno": 9581,
+              "filename": "all.js" },
+            { "lineno": 9581,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4035,6 +4376,10 @@
       { "name": "GetInfoViewResponse",
         "locations":
           [ { "lineno": 4862,
+              "filename": "all.js" },
+            { "lineno": 9603,
+              "filename": "all.js" },
+            { "lineno": 9603,
               "filename": "all.js" } ],
         "docs":
           { "summary": "basig business data",
@@ -4087,7 +4432,11 @@
         "labels": [] },
       { "name": "GetNotificationViewResponse",
         "locations":
-          [ { "lineno": 4690,
+          [ { "lineno": 9424,
+              "filename": "all.js" },
+            { "lineno": 9424,
+              "filename": "all.js" },
+            { "lineno": 9424,
               "filename": "all.js" } ],
         "docs":
           { "summary": "notifications view settings",
@@ -4140,7 +4489,11 @@
         "labels": [] },
       { "name": "GetPropertiesResponse",
         "locations":
-          [ { "lineno": 4855,
+          [ { "lineno": 9596,
+              "filename": "all.js" },
+            { "lineno": 9596,
+              "filename": "all.js" },
+            { "lineno": 9596,
               "filename": "all.js" } ],
         "docs":
           { "summary": "business properties",
@@ -4165,6 +4518,8 @@
       { "name": "GetRequest",
         "locations":
           [ { "lineno": 223,
+              "filename": "all.js" },
+            { "lineno": 5764,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4183,6 +4538,10 @@
       { "name": "GetResourceRequest",
         "locations":
           [ { "lineno": 4643,
+              "filename": "all.js" },
+            { "lineno": 9377,
+              "filename": "all.js" },
+            { "lineno": 9377,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4204,7 +4563,11 @@
         "labels": [] },
       { "name": "GetResourceResponse",
         "locations":
-          [ { "lineno": 4444,
+          [ { "lineno": 9178,
+              "filename": "all.js" },
+            { "lineno": 9178,
+              "filename": "all.js" },
+            { "lineno": 9178,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4224,7 +4587,9 @@
         "labels": [] },
       { "name": "GetResponse",
         "locations":
-          [ { "lineno": 229,
+          [ { "lineno": 5770,
+              "filename": "all.js" },
+            { "lineno": 5770,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4240,6 +4605,8 @@
       { "name": "GetScheduleRequest",
         "locations":
           [ { "lineno": 1560,
+              "filename": "all.js" },
+            { "lineno": 7116,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4255,7 +4622,9 @@
         "labels": [] },
       { "name": "GetScheduleResponse",
         "locations":
-          [ { "lineno": 1555,
+          [ { "lineno": 7111,
+              "filename": "all.js" },
+            { "lineno": 7111,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4274,6 +4643,10 @@
           [ { "lineno": 2439,
               "filename": "all.js" },
             { "lineno": 4684,
+              "filename": "all.js" },
+            { "lineno": 9418,
+              "filename": "all.js" },
+            { "lineno": 9418,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4292,6 +4665,10 @@
           [ { "lineno": 2444,
               "filename": "all.js" },
             { "lineno": 4374,
+              "filename": "all.js" },
+            { "lineno": 9108,
+              "filename": "all.js" },
+            { "lineno": 9108,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4308,6 +4685,8 @@
       { "name": "GetSessionRequest",
         "locations":
           [ { "lineno": 1579,
+              "filename": "all.js" },
+            { "lineno": 7135,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4323,7 +4702,9 @@
         "labels": [] },
       { "name": "GetSessionResponse",
         "locations":
-          [ { "lineno": 1584,
+          [ { "lineno": 7140,
+              "filename": "all.js" },
+            { "lineno": 7140,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4342,6 +4723,10 @@
           [ { "lineno": 4594,
               "filename": "all.js" },
             { "lineno": 4594,
+              "filename": "all.js" },
+            { "lineno": 9328,
+              "filename": "all.js" },
+            { "lineno": 9328,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Form header",
@@ -4369,6 +4754,12 @@
             { "lineno": 4999,
               "filename": "all.js" },
             { "lineno": 4999,
+              "filename": "all.js" },
+            { "lineno": 10535,
+              "filename": "all.js" },
+            { "lineno": 10535,
+              "filename": "all.js" },
+            { "lineno": 10535,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4400,6 +4791,14 @@
             { "lineno": 4734,
               "filename": "all.js" },
             { "lineno": 4734,
+              "filename": "all.js" },
+            { "lineno": 10444,
+              "filename": "all.js" },
+            { "lineno": 10444,
+              "filename": "all.js" },
+            { "lineno": 10444,
+              "filename": "all.js" },
+            { "lineno": 10444,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The interval rules. The day, hour and minutes the interval is recurring.",
@@ -4426,6 +4825,8 @@
       { "name": "IsAvailableRequest",
         "locations":
           [ { "lineno": 626,
+              "filename": "all.js" },
+            { "lineno": 6190,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4444,6 +4845,8 @@
       { "name": "IsAvailableResponse",
         "locations":
           [ { "lineno": 612,
+              "filename": "all.js" },
+            { "lineno": 6176,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4466,6 +4869,8 @@
       { "name": "JoinRequest",
         "locations":
           [ { "lineno": 517,
+              "filename": "all.js" },
+            { "lineno": 6081,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4489,6 +4894,8 @@
       { "name": "JoinResponse",
         "locations":
           [ { "lineno": 525,
+              "filename": "all.js" },
+            { "lineno": 6089,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4505,6 +4912,8 @@
       { "name": "LeaveRequest",
         "locations":
           [ { "lineno": 549,
+              "filename": "all.js" },
+            { "lineno": 6113,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4522,6 +4931,8 @@
       { "name": "LeaveResponse",
         "locations":
           [ { "lineno": 555,
+              "filename": "all.js" },
+            { "lineno": 6119,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4541,6 +4952,10 @@
           [ { "lineno": 4973,
               "filename": "all.js" },
             { "lineno": 4973,
+              "filename": "all.js" },
+            { "lineno": 9715,
+              "filename": "all.js" },
+            { "lineno": 9715,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4572,6 +4987,20 @@
             { "lineno": 4962,
               "filename": "all.js" },
             { "lineno": 4962,
+              "filename": "all.js" },
+            { "lineno": 10517,
+              "filename": "all.js" },
+            { "lineno": 10517,
+              "filename": "all.js" },
+            { "lineno": 10517,
+              "filename": "all.js" },
+            { "lineno": 10517,
+              "filename": "all.js" },
+            { "lineno": 10517,
+              "filename": "all.js" },
+            { "lineno": 10517,
+              "filename": "all.js" },
+            { "lineno": 10517,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4594,6 +5023,8 @@
       { "name": "ListAvailableSlotsRequest",
         "locations":
           [ { "lineno": 702,
+              "filename": "all.js" },
+            { "lineno": 6266,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4612,6 +5043,8 @@
       { "name": "ListAvailableSlotsResponse",
         "locations":
           [ { "lineno": 708,
+              "filename": "all.js" },
+            { "lineno": 6272,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4633,7 +5066,9 @@
         "labels": [] },
       { "name": "ListBookingEntry",
         "locations":
-          [ { "lineno": 3723,
+          [ { "lineno": 8056,
+              "filename": "all.js" },
+            { "lineno": 8056,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4652,6 +5087,8 @@
       { "name": "ListBookingsRequest",
         "locations":
           [ { "lineno": 303,
+              "filename": "all.js" },
+            { "lineno": 5844,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4669,7 +5106,9 @@
         "labels": [] },
       { "name": "ListBookingsResponse",
         "locations":
-          [ { "lineno": 296,
+          [ { "lineno": 5837,
+              "filename": "all.js" },
+            { "lineno": 5837,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4692,6 +5131,8 @@
       { "name": "ListByContactsRequest",
         "locations":
           [ { "lineno": 3542,
+              "filename": "all.js" },
+            { "lineno": 7875,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4714,7 +5155,9 @@
         "labels": [] },
       { "name": "ListByContactsResponse",
         "locations":
-          [ { "lineno": 3490,
+          [ { "lineno": 7823,
+              "filename": "all.js" },
+            { "lineno": 7823,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4773,7 +5216,9 @@
         "labels": [] },
       { "name": "ListEventsRequest",
         "locations":
-          [ { "lineno": 1168,
+          [ { "lineno": 6733,
+              "filename": "all.js" },
+            { "lineno": 6733,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4788,7 +5233,9 @@
         "labels": [] },
       { "name": "ListEventsResponse",
         "locations":
-          [ { "lineno": 1173,
+          [ { "lineno": 6738,
+              "filename": "all.js" },
+            { "lineno": 6738,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4807,9 +5254,15 @@
         "labels": [] },
       { "name": "ListResourcesRequest",
         "locations":
-          [ { "lineno": 1933,
+          [ { "lineno": 7489,
               "filename": "all.js" },
             { "lineno": 4581,
+              "filename": "all.js" },
+            { "lineno": 7489,
+              "filename": "all.js" },
+            { "lineno": 9315,
+              "filename": "all.js" },
+            { "lineno": 9315,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4824,9 +5277,15 @@
         "labels": [] },
       { "name": "ListResourcesResponse",
         "locations":
-          [ { "lineno": 1968,
+          [ { "lineno": 7524,
               "filename": "all.js" },
-            { "lineno": 4533,
+            { "lineno": 9267,
+              "filename": "all.js" },
+            { "lineno": 7524,
+              "filename": "all.js" },
+            { "lineno": 9267,
+              "filename": "all.js" },
+            { "lineno": 9267,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4848,6 +5307,8 @@
       { "name": "ListSchedulesRequest",
         "locations":
           [ { "lineno": 1608,
+              "filename": "all.js" },
+            { "lineno": 7164,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4875,7 +5336,9 @@
         "labels": [] },
       { "name": "ListSchedulesResponse",
         "locations":
-          [ { "lineno": 1603,
+          [ { "lineno": 7159,
+              "filename": "all.js" },
+            { "lineno": 7159,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4927,9 +5390,35 @@
         "extra":
           {  },
         "labels": [] },
+      { "name": "ListServicesBySlugRequest",
+        "locations":
+          [ { "lineno": 9463,
+              "filename": "all.js" },
+            { "lineno": 9463,
+              "filename": "all.js" } ],
+        "docs":
+          { "links": [],
+            "examples": [],
+            "extra":
+              {  } },
+        "members":
+          [ { "name": "slug",
+              "type": "string" },
+            { "name": "query",
+              "type": "wix-bookings-backend.Query" },
+            { "name": "includeDeleted",
+              "type": "boolean" } ],
+        "extra":
+          {  },
+        "labels":
+          [ "new" ] },
       { "name": "ListServicesRequest",
         "locations":
           [ { "lineno": 4758,
+              "filename": "all.js" },
+            { "lineno": 9499,
+              "filename": "all.js" },
+            { "lineno": 9499,
               "filename": "all.js" } ],
         "docs":
           { "summary": "List catalog items request",
@@ -4948,6 +5437,10 @@
       { "name": "ListServicesResponse",
         "locations":
           [ { "lineno": 5007,
+              "filename": "all.js" },
+            { "lineno": 9749,
+              "filename": "all.js" },
+            { "lineno": 9749,
               "filename": "all.js" } ],
         "docs":
           { "summary": "A list of catalog service response.",
@@ -4974,6 +5467,10 @@
           [ { "lineno": 725,
               "filename": "all.js" },
             { "lineno": 1629,
+              "filename": "all.js" },
+            { "lineno": 6289,
+              "filename": "all.js" },
+            { "lineno": 7185,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -4993,7 +5490,11 @@
         "locations":
           [ { "lineno": 731,
               "filename": "all.js" },
-            { "lineno": 1635,
+            { "lineno": 7191,
+              "filename": "all.js" },
+            { "lineno": 6295,
+              "filename": "all.js" },
+            { "lineno": 7191,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5016,6 +5517,8 @@
       { "name": "ListSlotsRequest",
         "locations":
           [ { "lineno": 777,
+              "filename": "all.js" },
+            { "lineno": 6341,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5035,6 +5538,8 @@
       { "name": "ListSlotsResponse",
         "locations":
           [ { "lineno": 783,
+              "filename": "all.js" },
+            { "lineno": 6347,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5056,7 +5561,9 @@
         "labels": [] },
       { "name": "ListStatusRequest",
         "locations":
-          [ { "lineno": 1233,
+          [ { "lineno": 6789,
+              "filename": "all.js" },
+            { "lineno": 6789,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5069,7 +5576,9 @@
         "labels": [] },
       { "name": "ListStatusResponse",
         "locations":
-          [ { "lineno": 1228,
+          [ { "lineno": 6784,
+              "filename": "all.js" },
+            { "lineno": 6784,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5089,6 +5598,8 @@
       { "name": "ListWaitingListRequest",
         "locations":
           [ { "lineno": 5026,
+              "filename": "all.js" },
+            { "lineno": 10551,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5107,7 +5618,9 @@
         "labels": [] },
       { "name": "ListWaitingListResponse",
         "locations":
-          [ { "lineno": 5174,
+          [ { "lineno": 10699,
+              "filename": "all.js" },
+            { "lineno": 10699,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5134,6 +5647,16 @@
             { "lineno": 4068,
               "filename": "all.js" },
             { "lineno": 5273,
+              "filename": "all.js" },
+            { "lineno": 10261,
+              "filename": "all.js" },
+            { "lineno": 8095,
+              "filename": "all.js" },
+            { "lineno": 10261,
+              "filename": "all.js" },
+            { "lineno": 10261,
+              "filename": "all.js" },
+            { "lineno": 10798,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The time in local date time. Optional.\nIf the this field is specified then the timestamp will be ignored and will be calculated from\nthis local date time and the business timezone.",
@@ -5172,6 +5695,22 @@
             { "lineno": 5446,
               "filename": "all.js" },
             { "lineno": 5446,
+              "filename": "all.js" },
+            { "lineno": 10722,
+              "filename": "all.js" },
+            { "lineno": 10471,
+              "filename": "all.js" },
+            { "lineno": 10722,
+              "filename": "all.js" },
+            { "lineno": 10471,
+              "filename": "all.js" },
+            { "lineno": 10248,
+              "filename": "all.js" },
+            { "lineno": 10248,
+              "filename": "all.js" },
+            { "lineno": 10471,
+              "filename": "all.js" },
+            { "lineno": 10722,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Geographic location of the session as free-form text. Optional.\nThis is the default location of the schedule's sessions.",
@@ -5194,6 +5733,10 @@
           [ { "lineno": 336,
               "filename": "all.js" },
             { "lineno": 648,
+              "filename": "all.js" },
+            { "lineno": 5877,
+              "filename": "all.js" },
+            { "lineno": 6212,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5211,6 +5754,10 @@
           [ { "lineno": 341,
               "filename": "all.js" },
             { "lineno": 653,
+              "filename": "all.js" },
+            { "lineno": 5882,
+              "filename": "all.js" },
+            { "lineno": 6217,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5223,9 +5770,44 @@
         "extra":
           {  },
         "labels": [] },
+      { "name": "MarkAsPaidRequest",
+        "locations":
+          [ { "lineno": 5903,
+              "filename": "all.js" } ],
+        "docs":
+          { "links": [],
+            "examples": [],
+            "extra":
+              {  } },
+        "members":
+          [ { "name": "bookingId",
+              "type": "string",
+              "doc": "Id of the Booking to be updated" } ],
+        "extra":
+          {  },
+        "labels":
+          [ "new" ] },
+      { "name": "MarkAsPaidResponse",
+        "locations":
+          [ { "lineno": 5908,
+              "filename": "all.js" } ],
+        "docs":
+          { "links": [],
+            "examples": [],
+            "extra":
+              {  } },
+        "members":
+          [ { "name": "booking",
+              "type": "wix-bookings-backend.Booking" } ],
+        "extra":
+          {  },
+        "labels":
+          [ "new" ] },
       { "name": "MigrateRequest",
         "locations":
           [ { "lineno": 1659,
+              "filename": "all.js" },
+            { "lineno": 7215,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5243,7 +5825,9 @@
         "labels": [] },
       { "name": "MigrateResponse",
         "locations":
-          [ { "lineno": 1654,
+          [ { "lineno": 7210,
+              "filename": "all.js" },
+            { "lineno": 7210,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5262,6 +5846,8 @@
       { "name": "MigrateResponseEntry",
         "locations":
           [ { "lineno": 1664,
+              "filename": "all.js" },
+            { "lineno": 7220,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5279,6 +5865,10 @@
       { "name": "NotificationView",
         "locations":
           [ { "lineno": 4566,
+              "filename": "all.js" },
+            { "lineno": 9300,
+              "filename": "all.js" },
+            { "lineno": 9300,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Notification presentation that available to the user of users",
@@ -5312,6 +5902,12 @@
             { "lineno": 5421,
               "filename": "all.js" },
             { "lineno": 5421,
+              "filename": "all.js" },
+            { "lineno": 10664,
+              "filename": "all.js" },
+            { "lineno": 10664,
+              "filename": "all.js" },
+            { "lineno": 10664,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Online conference information",
@@ -5335,6 +5931,10 @@
       { "name": "PageUrl",
         "locations":
           [ { "lineno": 4437,
+              "filename": "all.js" },
+            { "lineno": 9171,
+              "filename": "all.js" },
+            { "lineno": 9171,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The URL for the booking entry point. It can be either to the calendar or to the service page.",
@@ -5363,6 +5963,18 @@
             { "lineno": 4587,
               "filename": "all.js" },
             { "lineno": 4587,
+              "filename": "all.js" },
+            { "lineno": 10163,
+              "filename": "all.js" },
+            { "lineno": 10163,
+              "filename": "all.js" },
+            { "lineno": 10163,
+              "filename": "all.js" },
+            { "lineno": 10163,
+              "filename": "all.js" },
+            { "lineno": 10163,
+              "filename": "all.js" },
+            { "lineno": 10163,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Limit number of results",
@@ -5387,6 +5999,12 @@
             { "lineno": 5209,
               "filename": "all.js" },
             { "lineno": 5458,
+              "filename": "all.js" },
+            { "lineno": 9023,
+              "filename": "all.js" },
+            { "lineno": 9023,
+              "filename": "all.js" },
+            { "lineno": 10734,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Plan details",
@@ -5411,6 +6029,12 @@
             { "lineno": 5429,
               "filename": "all.js" },
             { "lineno": 5429,
+              "filename": "all.js" },
+            { "lineno": 10682,
+              "filename": "all.js" },
+            { "lineno": 10682,
+              "filename": "all.js" },
+            { "lineno": 10682,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Paid plan details used to pay for the booking.",
@@ -5437,7 +6061,9 @@
         "labels": [] },
       { "name": "PaidPlans",
         "locations":
-          [ { "lineno": 938,
+          [ { "lineno": 6502,
+              "filename": "all.js" },
+            { "lineno": 6502,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Paid plans available for checkout.",
@@ -5473,6 +6099,20 @@
             { "lineno": 4497,
               "filename": "all.js" },
             { "lineno": 4497,
+              "filename": "all.js" },
+            { "lineno": 10363,
+              "filename": "all.js" },
+            { "lineno": 10363,
+              "filename": "all.js" },
+            { "lineno": 10363,
+              "filename": "all.js" },
+            { "lineno": 10363,
+              "filename": "all.js" },
+            { "lineno": 10363,
+              "filename": "all.js" },
+            { "lineno": 10363,
+              "filename": "all.js" },
+            { "lineno": 10363,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5511,6 +6151,10 @@
             { "lineno": 3295,
               "filename": "all.js" },
             { "lineno": 3661,
+              "filename": "all.js" },
+            { "lineno": 7994,
+              "filename": "all.js" },
+            { "lineno": 9999,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Whether to notify participants about the change and an optional custom message",
@@ -5535,6 +6179,12 @@
             { "lineno": 5283,
               "filename": "all.js" },
             { "lineno": 5472,
+              "filename": "all.js" },
+            { "lineno": 10808,
+              "filename": "all.js" },
+            { "lineno": 9037,
+              "filename": "all.js" },
+            { "lineno": 10808,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Payment Details. Optional. On Create, in case of a given empty field, this booking will not be send to checkout for payment.",
@@ -5577,6 +6227,12 @@
             { "lineno": 4815,
               "filename": "all.js" },
             { "lineno": 4815,
+              "filename": "all.js" },
+            { "lineno": 6606,
+              "filename": "all.js" },
+            { "lineno": 9556,
+              "filename": "all.js" },
+            { "lineno": 9556,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5606,6 +6262,12 @@
             { "lineno": 5395,
               "filename": "all.js" },
             { "lineno": 5395,
+              "filename": "all.js" },
+            { "lineno": 10593,
+              "filename": "all.js" },
+            { "lineno": 10593,
+              "filename": "all.js" },
+            { "lineno": 10593,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5624,7 +6286,9 @@
         "labels": [] },
       { "name": "Payments",
         "locations":
-          [ { "lineno": 906,
+          [ { "lineno": 6470,
+              "filename": "all.js" },
+            { "lineno": 6470,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Transaction details.",
@@ -5645,6 +6309,8 @@
       { "name": "Plan",
         "locations":
           [ { "lineno": 1024,
+              "filename": "all.js" },
+            { "lineno": 6588,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5684,6 +6350,22 @@
             { "lineno": 5413,
               "filename": "all.js" },
             { "lineno": 5413,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
+              "filename": "all.js" },
+            { "lineno": 10656,
               "filename": "all.js" } ],
         "docs":
           { "summary": "`key` of type string, `value` of type ref",
@@ -5707,6 +6389,10 @@
       { "name": "PricingPlan",
         "locations":
           [ { "lineno": 4657,
+              "filename": "all.js" },
+            { "lineno": 9391,
+              "filename": "all.js" },
+            { "lineno": 9391,
               "filename": "all.js" } ],
         "docs":
           { "summary": "A service catalog information of paid plan that can be used to book this service.",
@@ -5733,6 +6419,10 @@
       { "name": "Property",
         "locations":
           [ { "lineno": 4491,
+              "filename": "all.js" },
+            { "lineno": 9225,
+              "filename": "all.js" },
+            { "lineno": 9225,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5760,6 +6450,18 @@
             { "lineno": 4029,
               "filename": "all.js" },
             { "lineno": 4614,
+              "filename": "all.js" },
+            { "lineno": 9348,
+              "filename": "all.js" },
+            { "lineno": 9348,
+              "filename": "all.js" },
+            { "lineno": 9348,
+              "filename": "all.js" },
+            { "lineno": 9348,
+              "filename": "all.js" },
+            { "lineno": 9348,
+              "filename": "all.js" },
+            { "lineno": 10222,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5801,6 +6503,14 @@
             { "lineno": 4932,
               "filename": "all.js" },
             { "lineno": 4932,
+              "filename": "all.js" },
+            { "lineno": 9674,
+              "filename": "all.js" },
+            { "lineno": 9674,
+              "filename": "all.js" },
+            { "lineno": 9674,
+              "filename": "all.js" },
+            { "lineno": 9674,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5834,6 +6544,22 @@
             { "lineno": 5495,
               "filename": "all.js" },
             { "lineno": 5495,
+              "filename": "all.js" },
+            { "lineno": 10857,
+              "filename": "all.js" },
+            { "lineno": 10528,
+              "filename": "all.js" },
+            { "lineno": 10857,
+              "filename": "all.js" },
+            { "lineno": 10528,
+              "filename": "all.js" },
+            { "lineno": 10284,
+              "filename": "all.js" },
+            { "lineno": 10284,
+              "filename": "all.js" },
+            { "lineno": 10528,
+              "filename": "all.js" },
+            { "lineno": 10857,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The price options offered to book this schedule's slots. Optional. The default is no rate.",
@@ -5860,6 +6586,14 @@
             { "lineno": 4824,
               "filename": "all.js" },
             { "lineno": 4824,
+              "filename": "all.js" },
+            { "lineno": 10495,
+              "filename": "all.js" },
+            { "lineno": 10495,
+              "filename": "all.js" },
+            { "lineno": 10495,
+              "filename": "all.js" },
+            { "lineno": 10495,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5897,6 +6631,8 @@
       { "name": "RefreshCalendarRequest",
         "locations":
           [ { "lineno": 1248,
+              "filename": "all.js" },
+            { "lineno": 6804,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5915,7 +6651,9 @@
         "labels": [] },
       { "name": "RefreshCalendarResponse",
         "locations":
-          [ { "lineno": 1254,
+          [ { "lineno": 6810,
+              "filename": "all.js" },
+            { "lineno": 6810,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5929,6 +6667,8 @@
       { "name": "RegisterRequest",
         "locations":
           [ { "lineno": 5147,
+              "filename": "all.js" },
+            { "lineno": 10672,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5954,6 +6694,8 @@
       { "name": "RegisterResponse",
         "locations":
           [ { "lineno": 5063,
+              "filename": "all.js" },
+            { "lineno": 10588,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5969,6 +6711,8 @@
       { "name": "Registration",
         "locations":
           [ { "lineno": 5247,
+              "filename": "all.js" },
+            { "lineno": 10772,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -5997,6 +6741,8 @@
       { "name": "RemoveParticipantRequest",
         "locations":
           [ { "lineno": 1685,
+              "filename": "all.js" },
+            { "lineno": 7241,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6013,6 +6759,8 @@
       { "name": "RemoveParticipantResponse",
         "locations":
           [ { "lineno": 1680,
+              "filename": "all.js" },
+            { "lineno": 7236,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6029,6 +6777,8 @@
       { "name": "RescheduleRequest",
         "locations":
           [ { "lineno": 362,
+              "filename": "all.js" },
+            { "lineno": 5926,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6050,7 +6800,9 @@
         "labels": [] },
       { "name": "RescheduleResponse",
         "locations":
-          [ { "lineno": 369,
+          [ { "lineno": 5933,
+              "filename": "all.js" },
+            { "lineno": 5933,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6068,6 +6820,12 @@
           [ { "lineno": 4513,
               "filename": "all.js" },
             { "lineno": 4513,
+              "filename": "all.js" },
+            { "lineno": 10379,
+              "filename": "all.js" },
+            { "lineno": 10379,
+              "filename": "all.js" },
+            { "lineno": 10379,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6126,6 +6884,14 @@
             { "lineno": 4391,
               "filename": "all.js" },
             { "lineno": 4391,
+              "filename": "all.js" },
+            { "lineno": 10306,
+              "filename": "all.js" },
+            { "lineno": 10306,
+              "filename": "all.js" },
+            { "lineno": 9789,
+              "filename": "all.js" },
+            { "lineno": 10306,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6217,6 +6983,8 @@
       { "name": "SendSyncEmailRequest",
         "locations":
           [ { "lineno": 1268,
+              "filename": "all.js" },
+            { "lineno": 6824,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6238,7 +7006,9 @@
         "labels": [] },
       { "name": "SendSyncEmailResponse",
         "locations":
-          [ { "lineno": 1277,
+          [ { "lineno": 6833,
+              "filename": "all.js" },
+            { "lineno": 6833,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6254,6 +7024,10 @@
           [ { "lineno": 2979,
               "filename": "all.js" },
             { "lineno": 4889,
+              "filename": "all.js" },
+            { "lineno": 9630,
+              "filename": "all.js" },
+            { "lineno": 9630,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The service to be created.",
@@ -6303,6 +7077,10 @@
           [ { "lineno": 4473,
               "filename": "all.js" },
             { "lineno": 4473,
+              "filename": "all.js" },
+            { "lineno": 9207,
+              "filename": "all.js" },
+            { "lineno": 9207,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Information about the service.",
@@ -6338,6 +7116,14 @@
             { "lineno": 3549,
               "filename": "all.js" },
             { "lineno": 3977,
+              "filename": "all.js" },
+            { "lineno": 6525,
+              "filename": "all.js" },
+            { "lineno": 7882,
+              "filename": "all.js" },
+            { "lineno": 9891,
+              "filename": "all.js" },
+            { "lineno": 10170,
               "filename": "all.js" } ],
         "docs":
           { "summary": "A session that will be created for this booking.\n schedule_id, schedule_owner_id, start, and rate are used to calculate the checkout options.\n Start is used to access the relevant paid plans.",
@@ -6430,6 +7216,8 @@
       { "name": "SetAttendanceRequest",
         "locations":
           [ { "lineno": 398,
+              "filename": "all.js" },
+            { "lineno": 5962,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6448,7 +7236,9 @@
         "labels": [] },
       { "name": "SetAttendanceResponse",
         "locations":
-          [ { "lineno": 404,
+          [ { "lineno": 5968,
+              "filename": "all.js" },
+            { "lineno": 5968,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6463,11 +7253,17 @@
         "labels": [] },
       { "name": "SetOfSessions",
         "locations":
-          [ { "lineno": 5466,
+          [ { "lineno": 10792,
               "filename": "all.js" },
-            { "lineno": 5466,
+            { "lineno": 10792,
               "filename": "all.js" },
-            { "lineno": 5466,
+            { "lineno": 10792,
+              "filename": "all.js" },
+            { "lineno": 10792,
+              "filename": "all.js" },
+            { "lineno": 10792,
+              "filename": "all.js" },
+            { "lineno": 10792,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6491,6 +7287,12 @@
             { "lineno": 5439,
               "filename": "all.js" },
             { "lineno": 5439,
+              "filename": "all.js" },
+            { "lineno": 10692,
+              "filename": "all.js" },
+            { "lineno": 10692,
+              "filename": "all.js" },
+            { "lineno": 10692,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6514,6 +7316,10 @@
           [ { "lineno": 248,
               "filename": "all.js" },
             { "lineno": 603,
+              "filename": "all.js" },
+            { "lineno": 5789,
+              "filename": "all.js" },
+            { "lineno": 6167,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Based on calendar and is eventually consistent, check if a session in the specified time of the schedule\n with the specified scheduleId is available, and make sure that also the required schedules are available\n for the specified time",
@@ -6543,6 +7349,10 @@
       { "name": "Slug",
         "locations":
           [ { "lineno": 4629,
+              "filename": "all.js" },
+            { "lineno": 9363,
+              "filename": "all.js" },
+            { "lineno": 9363,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The slug is the remainder of the URI which can be used to access the service's page and service's booking page in WiX Bookings.",
@@ -6570,6 +7380,18 @@
             { "lineno": 4482,
               "filename": "all.js" },
             { "lineno": 4482,
+              "filename": "all.js" },
+            { "lineno": 10138,
+              "filename": "all.js" },
+            { "lineno": 10138,
+              "filename": "all.js" },
+            { "lineno": 10138,
+              "filename": "all.js" },
+            { "lineno": 10138,
+              "filename": "all.js" },
+            { "lineno": 10138,
+              "filename": "all.js" },
+            { "lineno": 10138,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6595,6 +7417,14 @@
             { "lineno": 4795,
               "filename": "all.js" },
             { "lineno": 4795,
+              "filename": "all.js" },
+            { "lineno": 10484,
+              "filename": "all.js" },
+            { "lineno": 10484,
+              "filename": "all.js" },
+            { "lineno": 10484,
+              "filename": "all.js" },
+            { "lineno": 10484,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Specify how to split the slots in intervals of minutes.\nThis value indicates the time between available slots' start time. e.g., from 5 minute slots (3:00, 3:05, 3:15) and 1 hour slots (3:00, 4:00, 5:00).",
@@ -6615,6 +7445,8 @@
       { "name": "SplitIntervalRequest",
         "locations":
           [ { "lineno": 1708,
+              "filename": "all.js" },
+            { "lineno": 7264,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6639,7 +7471,9 @@
         "labels": [] },
       { "name": "SplitIntervalResponse",
         "locations":
-          [ { "lineno": 1703,
+          [ { "lineno": 7259,
+              "filename": "all.js" },
+            { "lineno": 7259,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6659,6 +7493,8 @@
       { "name": "SyncStatus",
         "locations":
           [ { "lineno": 5521,
+              "filename": "all.js" },
+            { "lineno": 9762,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6681,6 +7517,8 @@
       { "name": "SyncStatusRequest",
         "locations":
           [ { "lineno": 1297,
+              "filename": "all.js" },
+            { "lineno": 6853,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6696,7 +7534,9 @@
         "labels": [] },
       { "name": "SyncStatusResponse",
         "locations":
-          [ { "lineno": 1292,
+          [ { "lineno": 6848,
+              "filename": "all.js" },
+            { "lineno": 6848,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6718,6 +7558,10 @@
           [ { "lineno": 4602,
               "filename": "all.js" },
             { "lineno": 4602,
+              "filename": "all.js" },
+            { "lineno": 9336,
+              "filename": "all.js" },
+            { "lineno": 9336,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6733,7 +7577,11 @@
         "labels": [] },
       { "name": "URLs",
         "locations":
-          [ { "lineno": 4455,
+          [ { "lineno": 9189,
+              "filename": "all.js" },
+            { "lineno": 9189,
+              "filename": "all.js" },
+            { "lineno": 9189,
               "filename": "all.js" } ],
         "docs":
           { "summary": "URLs to directly access the service's information page, and the service's booking page in Wix Bookings.",
@@ -6754,6 +7602,8 @@
       { "name": "UnAssignWiXUserFromScheduleOwnerRequest",
         "locations":
           [ { "lineno": 1733,
+              "filename": "all.js" },
+            { "lineno": 7289,
               "filename": "all.js" } ],
         "docs":
           { "summary": "schedule owner",
@@ -6777,6 +7627,8 @@
       { "name": "UnAssignWiXUserFromScheduleOwnerResponse",
         "locations":
           [ { "lineno": 1728,
+              "filename": "all.js" },
+            { "lineno": 7284,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6793,6 +7645,8 @@
       { "name": "UnLockRequest",
         "locations":
           [ { "lineno": 424,
+              "filename": "all.js" },
+            { "lineno": 5988,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6809,7 +7663,9 @@
         "labels": [] },
       { "name": "UnLockResponse",
         "locations":
-          [ { "lineno": 420,
+          [ { "lineno": 5984,
+              "filename": "all.js" },
+            { "lineno": 5984,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6823,6 +7679,8 @@
       { "name": "UnSyncRequest",
         "locations":
           [ { "lineno": 1317,
+              "filename": "all.js" },
+            { "lineno": 6873,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6841,7 +7699,9 @@
         "labels": [] },
       { "name": "UnSyncResponse",
         "locations":
-          [ { "lineno": 1313,
+          [ { "lineno": 6869,
+              "filename": "all.js" },
+            { "lineno": 6869,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6855,6 +7715,8 @@
       { "name": "UnlockRequest",
         "locations":
           [ { "lineno": 681,
+              "filename": "all.js" },
+            { "lineno": 6245,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6873,7 +7735,9 @@
         "labels": [] },
       { "name": "UnlockResponse",
         "locations":
-          [ { "lineno": 677,
+          [ { "lineno": 6241,
+              "filename": "all.js" },
+            { "lineno": 6241,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6887,6 +7751,8 @@
       { "name": "UpdateBookingRequest",
         "locations":
           [ { "lineno": 3855,
+              "filename": "all.js" },
+            { "lineno": 8186,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6926,7 +7792,9 @@
         "labels": [] },
       { "name": "UpdateBookingResponse",
         "locations":
-          [ { "lineno": 3696,
+          [ { "lineno": 8029,
+              "filename": "all.js" },
+            { "lineno": 8029,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6970,6 +7838,8 @@
       { "name": "UpdateCustomerInfoRequest",
         "locations":
           [ { "lineno": 476,
+              "filename": "all.js" },
+            { "lineno": 6040,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -6988,7 +7858,9 @@
         "labels": [] },
       { "name": "UpdateCustomerInfoResponse",
         "locations":
-          [ { "lineno": 471,
+          [ { "lineno": 6035,
+              "filename": "all.js" },
+            { "lineno": 6035,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7036,6 +7908,8 @@
       { "name": "UpdateIntervalRequest",
         "locations":
           [ { "lineno": 1773,
+              "filename": "all.js" },
+            { "lineno": 7329,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7057,7 +7931,9 @@
         "labels": [] },
       { "name": "UpdateIntervalResponse",
         "locations":
-          [ { "lineno": 1780,
+          [ { "lineno": 7336,
+              "filename": "all.js" },
+            { "lineno": 7336,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7070,7 +7946,9 @@
         "labels": [] },
       { "name": "UpdateParticipantRequest",
         "locations":
-          [ { "lineno": 1802,
+          [ { "lineno": 7358,
+              "filename": "all.js" },
+            { "lineno": 7358,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7089,7 +7967,9 @@
         "labels": [] },
       { "name": "UpdateParticipantResponse",
         "locations":
-          [ { "lineno": 1797,
+          [ { "lineno": 7353,
+              "filename": "all.js" },
+            { "lineno": 7353,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7135,6 +8015,8 @@
       { "name": "UpdateRequest",
         "locations":
           [ { "lineno": 1124,
+              "filename": "all.js" },
+            { "lineno": 6688,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7155,7 +8037,9 @@
         "labels": [] },
       { "name": "UpdateResourceRequest",
         "locations":
-          [ { "lineno": 2016,
+          [ { "lineno": 7572,
+              "filename": "all.js" },
+            { "lineno": 7572,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7174,7 +8058,9 @@
         "labels": [] },
       { "name": "UpdateResourceResponse",
         "locations":
-          [ { "lineno": 2022,
+          [ { "lineno": 7578,
+              "filename": "all.js" },
+            { "lineno": 7578,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7187,7 +8073,9 @@
         "labels": [] },
       { "name": "UpdateResponse",
         "locations":
-          [ { "lineno": 1119,
+          [ { "lineno": 6683,
+              "filename": "all.js" },
+            { "lineno": 6683,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7220,6 +8108,8 @@
           [ { "lineno": 3076,
               "filename": "all.js" },
             { "lineno": 3076,
+              "filename": "all.js" },
+            { "lineno": 9780,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7247,7 +8137,9 @@
         "labels": [] },
       { "name": "UpdateScheduleResponse",
         "locations":
-          [ { "lineno": 1752,
+          [ { "lineno": 7308,
+              "filename": "all.js" },
+            { "lineno": 7308,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7308,6 +8200,8 @@
       { "name": "UpdateSessionRequest",
         "locations":
           [ { "lineno": 1828,
+              "filename": "all.js" },
+            { "lineno": 7384,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7335,7 +8229,9 @@
         "labels": [] },
       { "name": "UpdateSessionResponse",
         "locations":
-          [ { "lineno": 1823,
+          [ { "lineno": 7379,
+              "filename": "all.js" },
+            { "lineno": 7379,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7351,15 +8247,27 @@
         "labels": [] },
       { "name": "Value",
         "locations":
-          [ { "lineno": 4450,
+          [ { "lineno": 9184,
               "filename": "all.js" },
-            { "lineno": 4450,
+            { "lineno": 9184,
               "filename": "all.js" },
-            { "lineno": 4450,
+            { "lineno": 9184,
               "filename": "all.js" },
-            { "lineno": 4450,
+            { "lineno": 9184,
               "filename": "all.js" },
-            { "lineno": 4450,
+            { "lineno": 9184,
+              "filename": "all.js" },
+            { "lineno": 10121,
+              "filename": "all.js" },
+            { "lineno": 9184,
+              "filename": "all.js" },
+            { "lineno": 9184,
+              "filename": "all.js" },
+            { "lineno": 9184,
+              "filename": "all.js" },
+            { "lineno": 9184,
+              "filename": "all.js" },
+            { "lineno": 10121,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7376,6 +8284,8 @@
       { "name": "WaitingListEntry",
         "locations":
           [ { "lineno": 5081,
+              "filename": "all.js" },
+            { "lineno": 10606,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7411,6 +8321,10 @@
           [ { "lineno": 4352,
               "filename": "all.js" },
             { "lineno": 4352,
+              "filename": "all.js" },
+            { "lineno": 9086,
+              "filename": "all.js" },
+            { "lineno": 9086,
               "filename": "all.js" } ],
         "docs":
           { "summary": "Waitlist policy for the service. Empty by default.",
@@ -7438,6 +8352,12 @@
             { "lineno": 5376,
               "filename": "all.js" },
             { "lineno": 5376,
+              "filename": "all.js" },
+            { "lineno": 10569,
+              "filename": "all.js" },
+            { "lineno": 10569,
+              "filename": "all.js" },
+            { "lineno": 10569,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7476,6 +8396,18 @@
             { "lineno": 4986,
               "filename": "all.js" },
             { "lineno": 4986,
+              "filename": "all.js" },
+            { "lineno": 10291,
+              "filename": "all.js" },
+            { "lineno": 10291,
+              "filename": "all.js" },
+            { "lineno": 10291,
+              "filename": "all.js" },
+            { "lineno": 10291,
+              "filename": "all.js" },
+            { "lineno": 10291,
+              "filename": "all.js" },
+            { "lineno": 10291,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The kind of value.",
@@ -7510,9 +8442,13 @@
         "labels": [] },
       { "name": "label",
         "locations":
-          [ { "lineno": 4849,
+          [ { "lineno": 9590,
               "filename": "all.js" },
-            { "lineno": 4849,
+            { "lineno": 9590,
+              "filename": "all.js" },
+            { "lineno": 9590,
+              "filename": "all.js" },
+            { "lineno": 9590,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
@@ -7532,6 +8468,10 @@
           [ { "lineno": 374,
               "filename": "all.js" },
             { "lineno": 3804,
+              "filename": "all.js" },
+            { "lineno": 5938,
+              "filename": "all.js" },
+            { "lineno": 8135,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The new scheduling item to which the booking was rescheduled",
@@ -7576,6 +8516,12 @@
             { "lineno": 177,
               "filename": "all.js" },
             { "lineno": 1050,
+              "filename": "all.js" },
+            { "lineno": 5564,
+              "filename": "all.js" },
+            { "lineno": 5718,
+              "filename": "all.js" },
+            { "lineno": 6614,
               "filename": "all.js" } ],
         "docs":
           { "summary": "The selected schedule to book.\n Can be a specific session, or pre-defined schedule.",
@@ -7597,11 +8543,17 @@
         "labels": [] },
       { "name": "type",
         "locations":
-          [ { "lineno": 5358,
+          [ { "lineno": 10545,
               "filename": "all.js" },
-            { "lineno": 5358,
+            { "lineno": 10545,
               "filename": "all.js" },
-            { "lineno": 5358,
+            { "lineno": 10545,
+              "filename": "all.js" },
+            { "lineno": 10545,
+              "filename": "all.js" },
+            { "lineno": 10545,
+              "filename": "all.js" },
+            { "lineno": 10545,
               "filename": "all.js" } ],
         "docs":
           { "links": [],
